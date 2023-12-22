@@ -55,7 +55,7 @@
    - It is achieved using callbacks, promises, and async/await. Callbacks are functions passed as arguments to be executed later.
    - [Back to Top](#javascript-interview-questions)
 
-### Q7. Explain the difference between `==` and `===` in JavaScript.
+### Q7. Explain the difference between `==` and `===` in JavaScript. 
    - **`==`:** It performs type coercion, allowing different types to be considered equal. For example, `"5" == 5` is true.
    - **`===`:** It strictly checks for equality without type coercion. `"5" === 5` is false.
    - [Back to Top](#javascript-interview-questions)
