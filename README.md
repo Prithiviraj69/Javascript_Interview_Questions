@@ -1,6 +1,5 @@
 # JavaScript_Interview_Question
 
-
 ## JavaScript Interview Questions
 1. **[What is JavaScript?](#q1-what-is-javascript)**
 2. **[Explain the difference between `let`, `const`, and `var` in JavaScript.](#q2-difference-between-let-const-and-var)**
@@ -22,8 +21,6 @@
 18. **[How does the `localStorage` differ from `sessionStorage` in JavaScript?](#q18-difference-between-localstorage-and-sessionstorage)**
 19. **[What is the purpose of the `JSON.stringify()` method?](#q19-purpose-of-json-stringify-method)**
 20. **[Explain the concept of the same-origin policy in JavaScript.](#q20-concept-of-same-origin-policy-in-javascript)**
-
-
 
 # Questions and Answers
 
@@ -54,18 +51,18 @@
    - [Back to Top](#javascript-interview-questions)
 
 ### Q6. What is asynchronous programming in JavaScript?
-   - Asynchronous programming allows non-blocking code execution. Operations like I/O, AJAX requests, and timers are executed asynchronously, and the program doesn't wait for them to complete.
-   - Callbacks, Promises, and async/await are common patterns for handling asynchronous code.
+   - Asynchronous programming in JavaScript allows code to run without waiting for long-running tasks to finish.
+   - It is achieved using callbacks, promises, and async/await. Callbacks are functions passed as arguments to be executed later.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q7. Explain the difference between `==` and `===` in JavaScript.
-   - **`==` (loose equality):** Compares values after type coercion, converting one type to another if needed. For example, `'5' == 5` is true.
-   - **`===` (strict equality):** Compares values without type coercion. It only returns true if both value and type are the same. For example, `'5' === 5` is false.
+   - **`==`:** It performs type coercion, allowing different types to be considered equal. For example, `"5" == 5` is true.
+   - **`===`:** It strictly checks for equality without type coercion. `"5" === 5` is false.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q8. What are Arrow functions in JavaScript?
-   - Arrow functions are a concise syntax for writing function expressions in JavaScript.
-   - They have a shorter syntax, don't bind their own `this`, `arguments`, `super`, or `new.target`, and are best suited for non-method functions.
+   - Arrow functions are a concise way to write function expressions in JavaScript.
+   - They have a shorter syntax, lexically bind `this`, and don't have their own `this`, `arguments`, `super`, or `new.target`.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q9. What is the significance of the `this` keyword in JavaScript?
