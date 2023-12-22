@@ -2,25 +2,25 @@
 
 ## JavaScript Interview Questions
 1. **[What is JavaScript?](#q1-what-is-javascript)**
-2. **[Explain the difference between `let`, `const`, and `var` in JavaScript.](#q2-difference-between-let-const-and-var)**
+2. **[Explain the difference between `let`, `const`, and `var` in JavaScript.](#q2-explain-the-difference-between-let-const-and-var-in-javascript)**
 3. **[What is the DOM in JavaScript?](#q3-what-is-the-dom-in-javascript)**
 4. **[Explain the concept of closures in JavaScript.](#q4-explain-the-concept-of-closures-in-javascript)**
 5. **[How does prototypal inheritance work in JavaScript?](#q5-how-does-prototypal-inheritance-work-in-javascript)**
 6. **[What is asynchronous programming in JavaScript?](#q6-what-is-asynchronous-programming-in-javascript)**
-7. **[Explain the difference between `==` and `===` in JavaScript.](#q7-difference-between-and-in-javascript)**
+7. **[Explain the difference between `==` and `===` in JavaScript.](#q7-explain-the-difference-between-and-in-javascript)**
 8. **[What are Arrow functions in JavaScript?](#q8-what-are-arrow-functions-in-javascript)**
-9. **[What is the significance of the `this` keyword in JavaScript?](#q9-significance-of-this-keyword-in-javascript)**
-10. **[Explain the event bubbling and capturing in JavaScript.](#q10-event-bubbling-and-capturing-in-javascript)**
-11. **[What is the purpose of the `setTimeout` function in JavaScript?](#q11-purpose-of-settimeout-function-in-javascript)**
-12. **[How can you handle errors in JavaScript?](#q12-how-to-handle-errors-in-javascript)**
-13. **[Explain the concept of Promises in JavaScript.](#q13-concept-of-promises-in-javascript)**
-14. **[What is the difference between `null` and `undefined` in JavaScript?](#q14-difference-between-null-and-undefined-in-javascript)**
-15. **[How can you achieve inheritance in JavaScript?](#q15-achieve-inheritance-in-javascript)**
-16. **[Explain the concept of hoisting in JavaScript.](#q16-concept-of-hoisting-in-javascript)**
-17. **[What is the role of the `document.write()` method?](#q17-role-of-document-write-method)**
-18. **[How does the `localStorage` differ from `sessionStorage` in JavaScript?](#q18-difference-between-localstorage-and-sessionstorage)**
-19. **[What is the purpose of the `JSON.stringify()` method?](#q19-purpose-of-json-stringify-method)**
-20. **[Explain the concept of the same-origin policy in JavaScript.](#q20-concept-of-same-origin-policy-in-javascript)**
+9. **[What is the significance of the `this` keyword in JavaScript?](#q9-what-is-the-significance-of-the-this-keyword-in-javascript)**
+10. **[Explain the event bubbling and capturing in JavaScript.](#q10-explain-the-event-bubbling-and-capturing-in-javascript)**
+11. **[What is the purpose of the `setTimeout` function in JavaScript?](#q11-what-is-the-purpose-of-the-settimeout-function-in-javascript)**
+12. **[How can you handle errors in JavaScript?](#q12-how-can-you-handle-errors-in-javascript)**
+13. **[Explain the concept of Promises in JavaScript.](#q13-explain-the-concept-of-promises-in-javascript)**
+14. **[What is the difference between `null` and `undefined` in JavaScript?](#q14-what-is-the-difference-between-null-and-undefined-in-javascript)**
+15. **[How can you achieve inheritance in JavaScript?](#q15-how-can-you-achieve-inheritance-in-javascript)**
+16. **[Explain the concept of hoisting in JavaScript.](#q16-explain-the-concept-of-hoisting-in-javascript)**
+17. **[What is the role of the `document.write()` method?](#q17-what-is-the-role-of-the-documentwrite-method)**
+18. **[How does the `localStorage` differ from `sessionStorage` in JavaScript?](#q18-how-does-the-localstorage-differ-from-sessionstorage-in-javascript)**
+19. **[What is the purpose of the `JSON.stringify()` method?](#q19-what-is-the-purpose-of-the-jsonstringify-method)**
+20. **[Explain the concept of the same-origin policy in JavaScript.](#q20-explain-the-concept-of-the-same-origin-policy-in-javascript)**
 
 # Questions and Answers
 
