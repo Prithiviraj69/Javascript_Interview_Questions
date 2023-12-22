@@ -1,5 +1,6 @@
 # JavaScript_Interview_Question
 
+
 ## JavaScript Interview Questions
 1. **[What is JavaScript?](#q1-what-is-javascript)**
 2. **[Explain the difference between `let`, `const`, and `var` in JavaScript.](#q2-difference-between-let-const-and-var)**
@@ -21,6 +22,8 @@
 18. **[How does the `localStorage` differ from `sessionStorage` in JavaScript?](#q18-difference-between-localstorage-and-sessionstorage)**
 19. **[What is the purpose of the `JSON.stringify()` method?](#q19-purpose-of-json-stringify-method)**
 20. **[Explain the concept of the same-origin policy in JavaScript.](#q20-concept-of-same-origin-policy-in-javascript)**
+
+
 
 # Questions and Answers
 
