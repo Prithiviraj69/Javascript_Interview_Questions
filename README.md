@@ -21,6 +21,7 @@
 18. **[How does the `localStorage` differ from `sessionStorage` in JavaScript?](#q18-how-does-the-localstorage-differ-from-sessionstorage-in-javascript)**
 19. **[What is the purpose of the `JSON.stringify()` method?](#q19-what-is-the-purpose-of-the-jsonstringify-method)**
 20. **[Explain the concept of the same-origin policy in JavaScript.](#q20-explain-the-concept-of-the-same-origin-policy-in-javascript)**
+21. **[Explain `call()`, `apply()`, and `bind()` methods in JavaScript.](#q21-explain-call-apply-and-bind-methods-in-javascript)**
 
 # Questions and Answers
 
@@ -125,3 +126,44 @@
    - The same-origin policy is a security measure that restricts a web page from making requests to a different domain than the one that served the web page.
    - It prevents malicious scripts from making requests on behalf of the user without their consent.
    - [Back to Top](#javascript-interview-questions)
+
+### Q21. Explain `call()`, `apply()`, and `bind()` methods in JavaScript.
+   - In JavaScript, `call()`, `apply()`, and `bind()` are methods used to manipulate the context (the value of `this`) in which a function is executed.
+
+   - **`call()` method:**
+     - The `call()` method is used to invoke a function with a specific `this` value and arguments provided individually.
+     - Example:
+       ```javascript
+       function greet(name) {
+           console.log(`Hello, ${name}!`);
+       }
+
+       greet.call(null, 'John');
+       ```
+
+   - **`apply()` method:**
+     - The `apply()` method is similar to `call()`, but it takes an array of arguments instead of listing them individually.
+     - Example:
+       ```javascript
+       function greet(name) {
+           console.log(`Hello, ${name}!`);
+       }
+
+       greet.apply(null, ['John']);
+       ```
+
+   - **`bind()` method:**
+     - The `bind()` method creates a new function that, when called, has its `this` keyword set to a specific value, and returns a bound function.
+     - Example:
+       ```javascript
+       function greet(name) {
+           console.log(`Hello, ${name}!`);
+       }
+
+       const boundGreet = greet.bind(null, 'John');
+       boundGreet();
+       ```
+
+   - [Back to Top](#javascript-interview-questions)
+
+
