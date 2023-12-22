@@ -29,7 +29,7 @@
    - It is a high-level, interpreted scripting language that allows developers to add dynamic and interactive elements to websites.
    - [Back to Top](#javascript-interview-questions)
 
-### Q2. Explain the difference between `let`, `const`, and `var` in JavaScript.
+### Q2. Explain the difference between `let`, `const`, and `var` in JavaScript. 
    - **`let`:** It allows the declaration of block-scoped variables. The variable can be reassigned within the same block.
    - **`const`:** It also declares block-scoped variables but is used for constants that cannot be reassigned.
    - **`var`:** It declares a variable globally or locally to the entire function, regardless of block scope. It can be reassigned.
