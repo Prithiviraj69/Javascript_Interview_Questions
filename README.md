@@ -27,9 +27,6 @@
 24. **[How would you secure a Node.js server?](#how-would-you-secure-a-nodejs-server)**
 
 
-
-
-
 # Questions and Answers
 
 ### Q1. What is JavaScript?
@@ -263,6 +260,7 @@ These are just a few examples of the core modules available in Node.js. There ar
 
 - [Back to Top](#javascript-interview-questions)
   
+
 ### Q24. How would you secure a Node.js server?
 
 1. **Use HTTPS:** 
