@@ -73,7 +73,7 @@ may inherit from multiple prototypes, and only contains objects.
    - In methods, `this` refers to the object that owns the method. Arrow functions don't have their own `this` but inherit it from the enclosing scope.
    - [Back to Top](#javascript-interview-questions)
 
-### Q10. Explain the callback, promises, async/await in JavaScript.
+### q10-explain-the-callback-promises-async-await-in-javascript.
    - **Callback** :
    - When you nest a function inside another function as an argument, that's called a callback.
    - When doing a complex task, we break that task down into smaller steps. To help us establish a relationship between these steps according to time (optional) and order, we use callbacks.
