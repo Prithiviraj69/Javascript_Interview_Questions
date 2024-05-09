@@ -20,7 +20,7 @@
 17. **[What is the role of the `document.write()` method?](#q17-what-is-the-role-of-the-documentwrite-method)**
 18. **[How does the `localStorage` differ from `sessionStorage` in JavaScript?](#q18-how-does-the-localstorage-differ-from-sessionstorage-in-javascript)**
 19. **[What is the purpose of the `JSON.stringify()` method?](#q19-what-is-the-purpose-of-the-jsonstringify-method)**
-20. **[Explain the concept of the same-origin policy in JavaScript.](#q20-explain-the-concept-of-the-same-origin-policy-in-javascript)**
+20. **[What are debouncing and throttling in JavaScript?](#q20-what-are-debouncing-and-throttling-in-javascript)**
 21. **[Explain `call()`, `apply()`, and `bind()` methods in JavaScript.](#q21-explain-call-apply-and-bind-methods-in-javascript)**
 
 # Questions and Answers
@@ -165,9 +165,16 @@ JavaScript’s event loop is the core mechanism that enables asynchronous operat
    - It is commonly used to send data to a server or to store data in a format that can be easily transmitted between different platforms.
    - [Back to Top](#javascript-interview-questions)
 
-### Q20. Explain the concept of the same-origin policy in JavaScript.
-   - The same-origin policy is a security measure that restricts a web page from making requests to a different domain than the one that served the web page.
-   - It prevents malicious scripts from making requests on behalf of the user without their consent.
+### Q20. What are debouncing and throttling in JavaScript?
+
+**Debouncing:**
+Debouncing is a technique used to limit the execution of a function call. It delays the execution of the function until after a certain period of time has passed since the last function call. If the function is called again before the delay period is over, the timer resets and the function execution is postponed. This can be useful in scenarios such as handling input events, where you want to wait for the user to stop typing before processing their input.
+
+**Throttling:**
+Throttling is a technique used to limit the execution of an event handler function to a specific rate. It ensures that the function is executed at most once in a given period of time, even if the event occurs multiple times. This is beneficial in scenarios such as handling browser resizing or scrolling events, where continuous execution can cause performance issues.
+
+By using debouncing and throttling, you can optimize your code for better performance and avoid unnecessary function calls.
+
    - [Back to Top](#javascript-interview-questions)
 
 ### Q21. Explain `call()`, `apply()`, and `bind()` methods in JavaScript.
