@@ -10,7 +10,7 @@
 7. **[Explain the difference between `==` and `===` in JavaScript.](#q7-explain-the-difference-between-and-in-javascript)**
 8. **[What are Arrow functions in JavaScript?](#q8-what-are-arrow-functions-in-javascript)**
 9. **[What is the significance of the `this` keyword in JavaScript?](#q9-what-is-the-significance-of-the-this-keyword-in-javascript)**
-10. **[Explain the callback, promises, async/await in JavaScript.](#q10-explain-the-callback-promises-async-await-in-javascript)**
+10. 10. **[Explain the callback, promises, async/await in JavaScript.](#q10-explain-the-callback-promises-async-await-in-javascript)**
 11. **[What is the purpose of the `setTimeout` function in JavaScript?](#q11-what-is-the-purpose-of-the-settimeout-function-in-javascript)**
 12. **[How can you handle errors in JavaScript?](#q12-how-can-you-handle-errors-in-javascript)**
 13. **[Explain the concept of Promises in JavaScript.](#q13-explain-the-concept-of-promises-in-javascript)**
