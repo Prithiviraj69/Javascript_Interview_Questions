@@ -15,7 +15,7 @@
 12. **[How can you handle errors in JavaScript?](#q12-how-can-you-handle-errors-in-javascript)**
 13. **[Explain the concept of Promises in JavaScript.](#q13-explain-the-concept-of-promises-in-javascript)**
 14. **[What is the difference between `null` and `undefined` in JavaScript?](#q14-what-is-the-difference-between-null-and-undefined-in-javascript)**
-15. **[How can you achieve inheritance in JavaScript?](#q15-how-can-you-achieve-inheritance-in-javascript)**
+15. **[What is Map, Filter, Reduce?](#q15-what-is-map-filter-reduce)**
 16. **[Explain the concept of hoisting in JavaScript.](#q16-explain-the-concept-of-hoisting-in-javascript)**
 17. **[What is the role of the `document.write()` method?](#q17-what-is-the-role-of-the-documentwrite-method)**
 18. **[How does the `localStorage` differ from `sessionStorage` in JavaScript?](#q18-how-does-the-localstorage-differ-from-sessionstorage-in-javascript)**
@@ -112,9 +112,16 @@ may inherit from multiple prototypes, and only contains objects.
    - **`undefined`:** It represents an uninitialized or unassigned value. Variables that are not assigned a value are `undefined`.
    - [Back to Top](#javascript-interview-questions)
 
-### Q15. How can you achieve inheritance in JavaScript?
-   - Inheritance in JavaScript is achieved through prototype chaining. Objects can inherit properties and methods from other objects by setting their prototype.
-   - The `Object.create()` method is commonly used to create an object with a specific prototype.
+### Q15. What is Map, Filter, Reduce?
+   - **Map** :
+   - The map() method is used for creating a new array from an existing one, applying a function to each one of the elements of the first array.
+   - n the callback, only the array element is required. Usually some action is performed on the value and then a new value is returned.
+   - **Filter** :
+   - The filter() method takes each element in an array and it applies a conditional statement against it. If this conditional returns true, the element gets pushed to the output array. If the condition returns false, the element does not get pushed to the output array.
+   - The syntax for filter is similar to map, except the callback function should return true to keep the element, or false otherwise. In the callback, only the element is required.
+   - **Reduce** :
+   - The reduce() method reduces an array of values down to just one value. To get the output value, it runs a reducer function on each element of the array.
+   - The callback argument is a function that will be called once for every item in the array. This function takes four arguments, but often only the first two are used.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q16. Explain the concept of hoisting in JavaScript.
