@@ -25,7 +25,7 @@
 22. **[What is Node.js? What are its advantages and disadvantages?](#q22-what-is-nodejs-what-are-its-advantages-and-disadvantages)**
 23. **[What are the core modules in Node.js?](#what-are-the-core-modules-in-nodejs)**
 24. **[How would you secure a Node.js server?](#how-would-you-secure-a-nodejs-server)**
-
+25. **[What are SQL joins?](#what-are-sql-joins)**
 
 # Questions and Answers
 
@@ -305,6 +305,67 @@ These are just a few examples of the core modules available in Node.js. There ar
     - Run your Node.js server with the least privilege required, avoiding running it as a root user.
 
 Implementing these best practices will help you create a more secure Node.js server and reduce the risk of security vulnerabilities in your application. Let me know if there's anything else I can help you with!
+- [Back to Top](#javascript-interview-questions)
+
+### Q25. What are SQL joins?
+
+In SQL, joins are used to combine rows from two or more tables based on a related column between them. This allows you to retrieve data from multiple tables in a single query, making it easier to analyze data and gain insights. Here are some common types of SQL joins:
+
+1. **INNER JOIN:**
+    - Retrieves rows that have matching values in both tables based on the specified join condition.
+    - Example:
+        ```sql
+        SELECT columns
+        FROM table1
+        INNER JOIN table2 ON table1.column = table2.column;
+        ```
+
+2. **LEFT JOIN (LEFT OUTER JOIN):**
+    - Retrieves all rows from the left table and matching rows from the right table. If there is no match, NULL values are returned for columns from the right table.
+    - Example:
+        ```sql
+        SELECT columns
+        FROM table1
+        LEFT JOIN table2 ON table1.column = table2.column;
+        ```
+
+3. **RIGHT JOIN (RIGHT OUTER JOIN):**
+    - Retrieves all rows from the right table and matching rows from the left table. If there is no match, NULL values are returned for columns from the left table.
+    - Example:
+        ```sql
+        SELECT columns
+        FROM table1
+        RIGHT JOIN table2 ON table1.column = table2.column;
+        ```
+
+4. **FULL OUTER JOIN:**
+    - Retrieves all rows from both tables, including rows with no matching values. If there is no match, NULL values are returned for columns from the non-matching table.
+    - Example:
+        ```sql
+        SELECT columns
+        FROM table1
+        FULL OUTER JOIN table2 ON table1.column = table2.column;
+        ```
+
+5. **CROSS JOIN:**
+    - Produces a Cartesian product of both tables, resulting in all possible combinations of rows from each table.
+    - Example:
+        ```sql
+        SELECT columns
+        FROM table1
+        CROSS JOIN table2;
+        ```
+
+6. **SELF JOIN:**
+    - Joins a table to itself, typically for hierarchical or related data within a single table.
+    - Example:
+        ```sql
+        SELECT columns
+        FROM table1 AS t1
+        JOIN table1 AS t2 ON t1.column = t2.column;
+        ```
+
+Using joins, you can create complex queries to retrieve and combine data from multiple tables efficiently. Joins are essential for querying relational databases and are a fundamental aspect of SQL. Let me know if you have any other questions or if there's anything else I can help you with!
 - [Back to Top](#javascript-interview-questions)
 
 
