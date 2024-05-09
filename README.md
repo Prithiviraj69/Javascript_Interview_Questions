@@ -10,7 +10,7 @@
 7. **[Explain the difference between `==` and `===` in JavaScript.](#q7-explain-the-difference-between-and-in-javascript)**
 8. **[What are Arrow functions in JavaScript?](#q8-what-are-arrow-functions-in-javascript)**
 9. **[What is the significance of the `this` keyword in JavaScript?](#q9-what-is-the-significance-of-the-this-keyword-in-javascript)**
-10. **[Explain the event bubbling and capturing in JavaScript.](#q10-explain-the-event-bubbling-and-capturing-in-javascript)**
+10. **[Explain the callback, promises, async/await in JavaScript.](#q10-explain-the-event-bubbling-and-capturing-in-javascript)**
 11. **[What is the purpose of the `setTimeout` function in JavaScript?](#q11-what-is-the-purpose-of-the-settimeout-function-in-javascript)**
 12. **[How can you handle errors in JavaScript?](#q12-how-can-you-handle-errors-in-javascript)**
 13. **[Explain the concept of Promises in JavaScript.](#q13-explain-the-concept-of-promises-in-javascript)**
@@ -64,8 +64,8 @@ may inherit from multiple prototypes, and only contains objects.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q8. What are Arrow functions in JavaScript?
-   - Arrow functions are a concise way to write function expressions in JavaScript.
-   - They have a shorter syntax, lexically bind `this`, and don't have their own `this`, `arguments`, `super`, or `new.target`.
+   - Arrow function {()=>} is concise way of writing JavaScript functions in shorter way. They make our code more structured and readable.
+   - Arrow functions are anonymous functions i.e. functions without a name but they are often assigned to any variable. They are also called Lambda Functions.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q9. What is the significance of the `this` keyword in JavaScript?
@@ -73,9 +73,22 @@ may inherit from multiple prototypes, and only contains objects.
    - In methods, `this` refers to the object that owns the method. Arrow functions don't have their own `this` but inherit it from the enclosing scope.
    - [Back to Top](#javascript-interview-questions)
 
-### Q10. Explain the event bubbling and capturing in JavaScript.
-   - Event capturing is the phase where the event trickles down from the root to the target element.
-   - Event bubbling is the phase where the event bubbles up from the target element to the root.
+### Q10. Explain the callback, promises, async/await in JavaScript.
+   - **Callback** :
+   - When you nest a function inside another function as an argument, that's called a callback.
+   - When doing a complex task, we break that task down into smaller steps. To help us establish a relationship between these steps according to time (optional) and order, we use callbacks.
+   - **Promises** :
+   - Promises were invented to solve the problem of callback hell and to better handle our tasks.
+   - promise has three states:
+     1. Pending: This is the initial stage. Nothing happens here. Think of it like this, your customer is taking their time giving you an order. But they haven't ordered anything yet.
+     2. Resolved: This means that your customer has received their food and is happy.
+     3. Rejected: This means that your customer didn't receive their order and left the restaurant.
+   - **Aysnc** :
+   - The Async function simply allows us to write promises-based code as if it were synchronous and it checks that we are not breaking the execution thread.
+   - Async functions will always return a value. It makes sure that a promise is returned and if it is not returned then JavaScript automatically wraps it in a promise which is resolved with its value.
+   - **Await** :
+   - Await is used to wait for the promise. It could be used within the async block only.It makes the code wait until the promise returns a result. 
+
    - [Back to Top](#javascript-interview-questions)
 
 ### Q11. What is the purpose of the `setTimeout` function in JavaScript?
