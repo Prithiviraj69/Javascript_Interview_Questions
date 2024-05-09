@@ -22,6 +22,8 @@
 19. **[What is the difference between SQL and NoSQL databases?](#what-is-the-difference-between-sql-and-nosql-databases)**
 20. **[What are debouncing and throttling in JavaScript?](#q20-what-are-debouncing-and-throttling-in-javascript)**
 21. **[Explain `call()`, `apply()`, and `bind()` methods in JavaScript.](#q21-explain-call-apply-and-bind-methods-in-javascript)**
+22. **[What is Node.js? What are its advantages and disadvantages?](#what-is-nodejs-what-are-its-advantages-and-disadvantages)**
+
 
 # Questions and Answers
 
@@ -230,5 +232,25 @@ By using debouncing and throttling, you can optimize your code for better perfor
        ```
 
    - [Back to Top](#javascript-interview-questions)
+
+### Q22. What is Node.js? What are its advantages and disadvantages?
+
+**Node.js** is an open-source, cross-platform JavaScript runtime environment that allows developers to build server-side and network applications using JavaScript. It is built on the V8 JavaScript engine developed by Google and is known for its event-driven, non-blocking I/O model, which makes it efficient and suitable for scalable applications.
+
+**Advantages of Node.js:**
+- **Asynchronous and Event-Driven:** Node.js is based on an asynchronous, non-blocking I/O model that makes it suitable for handling concurrent requests efficiently.
+- **Single Language for Both Server and Client:** Since it uses JavaScript, developers can write both server-side and client-side code in the same language, making it easier to maintain and share code.
+- **Large Ecosystem:** Node.js has a large ecosystem of packages and libraries available through npm (Node Package Manager), making it easier to find and integrate tools and modules.
+- **Fast Performance:** Being built on the V8 engine, Node.js offers high-speed execution and performance.
+- **Community Support:** Node.js has a large and active community, providing plenty of support, resources, and continuous improvements.
+
+**Disadvantages of Node.js:**
+- **Single-threaded:** While Node.js uses a non-blocking I/O model, it operates as a single-threaded environment, which can lead to performance issues when handling CPU-intensive tasks.
+- **Callback Hell:** Due to its asynchronous nature, complex operations may lead to "callback hell," where callbacks are nested deeply, making code harder to read and maintain.
+- **Not Suitable for Heavy Computation:** Node.js is not well-suited for heavy computation tasks as it may block the event loop, affecting application performance.
+- **Immature Modules:** Some npm modules may not be well-maintained or fully reliable, so careful selection and testing are necessary.
+- **Learning Curve:** While JavaScript is popular, the event-driven, asynchronous model of Node.js can present a learning curve for developers new to this approach.
+
+Overall, Node.js is an excellent choice for building scalable and efficient web applications and APIs, particularly when handling many concurrent connections or dealing with real-time data. However, it may not be the best choice for CPU-intensive applications or scenarios requiring heavy computation.
 
 
