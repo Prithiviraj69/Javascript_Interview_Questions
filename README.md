@@ -59,7 +59,7 @@ may inherit from multiple prototypes, and only contains objects.
 
 ### Q6. What is asynchronous programming in JavaScript?
    - Asynchronous programming in JavaScript allows code to run without waiting for long-running tasks to finish.
-   - It is achieved using callbacks, promises, and async/await. Callbacks are functions passed as arguments to be executed later.
+   - Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q7. Explain the difference between `==` and `===` in JavaScript. 
