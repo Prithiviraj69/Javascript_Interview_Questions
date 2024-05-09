@@ -19,7 +19,7 @@
 16. **[Explain the concept of hoisting in JavaScript.](#q16-explain-the-concept-of-hoisting-in-javascript)**
 17. **[What is the role of the `document.write()` method?](#q17-what-is-the-role-of-the-documentwrite-method)**
 18. **[How does the `localStorage` differ from `sessionStorage` in JavaScript?](#q18-how-does-the-localstorage-differ-from-sessionstorage-in-javascript)**
-19. **[What is the purpose of the `JSON.stringify()` method?](#q19-what-is-the-purpose-of-the-jsonstringify-method)**
+19. **[What is the difference between SQL and NoSQL databases?](#what-is-the-difference-between-sql-and-nosql-databases)**
 20. **[What are debouncing and throttling in JavaScript?](#q20-what-are-debouncing-and-throttling-in-javascript)**
 21. **[Explain `call()`, `apply()`, and `bind()` methods in JavaScript.](#q21-explain-call-apply-and-bind-methods-in-javascript)**
 
@@ -160,9 +160,24 @@ JavaScript’s event loop is the core mechanism that enables asynchronous operat
    - **`sessionStorage`:** Data stored in `sessionStorage` is limited to the duration of the page session. It is cleared when the page session ends.
    - [Back to Top](#javascript-interview-questions)
 
-### Q19. What is the purpose of the `JSON.stringify()` method?
-   - The `JSON.stringify()` method converts a JavaScript object or value to a JSON string.
-   - It is commonly used to send data to a server or to store data in a format that can be easily transmitted between different platforms.
+### Q19. What is the difference between SQL and NoSQL databases?
+   **SQL Databases:**
+- **Schema-based:** SQL databases use a predefined schema, which includes table structures, relationships, and data types.
+- **Structured data:** They are ideal for handling structured data that follows a strict format.
+- **Relational model:** These databases use tables to represent data, with relationships between tables maintained using foreign keys.
+- **ACID compliance:** SQL databases are known for their support of ACID properties (Atomicity, Consistency, Isolation, Durability), which ensures data integrity.
+- **Query language:** SQL databases use Structured Query Language (SQL) for querying and manipulating data.
+- **Examples:** MySQL, PostgreSQL, Oracle, Microsoft SQL Server.
+
+**NoSQL Databases:**
+- **Flexible schema:** NoSQL databases do not require a predefined schema, allowing for flexibility in handling different data types and structures.
+- **Unstructured data:** They are suitable for managing unstructured or semi-structured data, such as JSON or XML.
+- **Various data models:** NoSQL databases offer different data models, including key-value stores, document stores, column-family stores, and graph databases.
+- **Scalability:** NoSQL databases are often more scalable and can handle large amounts of data across distributed systems.
+- **BASE properties:** Instead of ACID, NoSQL databases prioritize BASE properties (Basically Available, Soft state, Eventual consistency) for distributed systems.
+- **Examples:** MongoDB, Cassandra, CouchDB, Redis, Neo4j.
+
+In summary, SQL databases are suitable for structured data and require a predefined schema, whereas NoSQL databases offer flexibility in handling unstructured data and can be more scalable. The choice between SQL and NoSQL depends on the specific requirements of your application.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q20. What are debouncing and throttling in JavaScript?
