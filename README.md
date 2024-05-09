@@ -13,7 +13,7 @@
 10. **[Explain the callback, promises, async/await in JavaScript.](#q10-explain-the-callback-promises-async-await-in-javascript)**
 11. **[What is the purpose of the `setTimeout` function in JavaScript?](#q11-what-is-the-purpose-of-the-settimeout-function-in-javascript)**
 12. **[How can you handle errors in JavaScript?](#q12-how-can-you-handle-errors-in-javascript)**
-13. **[Explain the concept of Promises in JavaScript.](#q13-explain-the-concept-of-promises-in-javascript)**
+13. **[What is an event loop in JavaScript?](#what-is-an-event-loop-in-javascript)**
 14. **[What is the difference between `null` and `undefined` in JavaScript?](#q14-what-is-the-difference-between-null-and-undefined-in-javascript)**
 15. **[What is Map, Filter, Reduce?](#q15-what-is-map-filter-reduce)**
 16. **[Explain the concept of hoisting in JavaScript.](#q16-explain-the-concept-of-hoisting-in-javascript)**
@@ -102,9 +102,30 @@ may inherit from multiple prototypes, and only contains objects.
    - The `finally` block is executed regardless of whether an error occurred or not.
    - [Back to Top](#javascript-interview-questions)
 
-### Q13. Explain the concept of Promises in JavaScript.
-   - Promises are objects representing the eventual completion or failure of an asynchronous operation.
-   - They have states: `pending`, `fulfilled`, and `rejected`. Promises simplify asynchronous code and make it more readable.
+### Q13. What is an event loop in JavaScript?
+
+JavaScript’s event loop is the core mechanism that enables asynchronous operations. Although JavaScript is single-threaded, it manages tasks efficiently. Imagine it as a queue system: events such as user interactions or network requests are added to the queue, and the engine processes them one by one. This allows JavaScript to handle non-blocking tasks without freezing, keeping the application responsive even while waiting for data or other operations.
+
+**How does the event loop work?**
+
+- **Call Stack:**
+    - JavaScript uses a call stack to keep track of the currently executing function (where the program is in its execution).
+  
+- **Callback Queue:**
+    - Asynchronous operations, such as I/O operations or timers, are handled by the browser or Node.js runtime. When these operations are complete, corresponding functions (callbacks) are placed in the callback queue.
+  
+- **Event Loop:**
+    - The event loop continuously checks the call stack and the callback queue. If the call stack is empty, it takes the first function from the callback queue and pushes it onto the call stack for execution.
+  
+- **Execution:**
+    - The function on top of the call stack is executed. If this function contains asynchronous code, it might initiate further asynchronous operations.
+  
+- **Callback Execution:**
+    - When an asynchronous operation is complete, its callback is placed in the callback queue.
+  
+- **Repeat:**
+    - The event loop continues this process, ensuring that the call stack is always empty before taking the next function from the callback queue.
+
    - [Back to Top](#javascript-interview-questions)
 
 ### Q14. What is the difference between `null` and `undefined` in JavaScript?
