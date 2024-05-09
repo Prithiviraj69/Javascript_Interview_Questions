@@ -22,7 +22,7 @@
 19. **[What is the difference between SQL and NoSQL databases?](#what-is-the-difference-between-sql-and-nosql-databases)**
 20. **[What are debouncing and throttling in JavaScript?](#q20-what-are-debouncing-and-throttling-in-javascript)**
 21. **[Explain `call()`, `apply()`, and `bind()` methods in JavaScript.](#q21-explain-call-apply-and-bind-methods-in-javascript)**
-22. **[What is Node.js? What are its advantages and disadvantages?](#what-is-nodejs-what-are-its-advantages-and-disadvantages)**
+22. **[What is Node.js? What are its advantages and disadvantages?](#q22-what-is-nodejs-what-are-its-advantages-and-disadvantages)**
 
 
 # Questions and Answers
