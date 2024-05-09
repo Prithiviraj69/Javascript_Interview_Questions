@@ -5,7 +5,7 @@
 2. **[Explain the difference between `let`, `const`, and `var` in JavaScript.](#q2-explain-the-difference-between-let-const-and-var-in-javascript)**
 3. **[What is the DOM in JavaScript?](#q3-what-is-the-dom-in-javascript)**
 4. **[Explain the concept of closures in JavaScript.](#q4-explain-the-concept-of-closures-in-javascript)**
-5. **[How does prototypal inheritance work in JavaScript?](#q5-how-does-prototypal-inheritance-work-in-javascript)**
+5. **[How does prototypal inheritance differ from classical inheritance?](#q5-how-does-prototypal-inheritance-work-in-javascript)**
 6. **[What is asynchronous programming in JavaScript?](#q6-what-is-asynchronous-programming-in-javascript)**
 7. **[Explain the difference between `==` and `===` in JavaScript.](#q7-explain-the-difference-between-and-in-javascript)**
 8. **[What are Arrow functions in JavaScript?](#q8-what-are-arrow-functions-in-javascript)**
@@ -49,6 +49,8 @@
 ### Q5. How does prototypal inheritance work in JavaScript?
    - JavaScript uses prototypal inheritance, where objects can inherit properties and methods from other objects.
    - Each object has an internal property called `[[Prototype]]`, and when a property is not found in an object, JavaScript looks for it in the object's prototype, creating a chain.
+   - In classical inheritance, classes are immutable, may or may not support multiple inheritance, and may contain interfaces, final classes, and abstract classes. In contrast, prototypes are much more flexible in the sense that they may be mutable or immutable. The object
+may inherit from multiple prototypes, and only contains objects.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q6. What is asynchronous programming in JavaScript?
