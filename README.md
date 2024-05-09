@@ -23,6 +23,10 @@
 20. **[What are debouncing and throttling in JavaScript?](#q20-what-are-debouncing-and-throttling-in-javascript)**
 21. **[Explain `call()`, `apply()`, and `bind()` methods in JavaScript.](#q21-explain-call-apply-and-bind-methods-in-javascript)**
 22. **[What is Node.js? What are its advantages and disadvantages?](#q22-what-is-nodejs-what-are-its-advantages-and-disadvantages)**
+23. **[What are the core modules in Node.js?](#what-are-the-core-modules-in-nodejs)**
+24. **[How would you secure a Node.js server?](#how-would-you-secure-a-nodejs-server)**
+
+
 
 
 # Questions and Answers
@@ -199,37 +203,12 @@ By using debouncing and throttling, you can optimize your code for better perfor
 
    - **`call()` method:**
      - The `call()` method is used to invoke a function with a specific `this` value and arguments provided individually.
-     - Example:
-       ```javascript
-       function greet(name) {
-           console.log(`Hello, ${name}!`);
-       }
-
-       greet.call(null, 'John');
-       ```
 
    - **`apply()` method:**
      - The `apply()` method is similar to `call()`, but it takes an array of arguments instead of listing them individually.
-     - Example:
-       ```javascript
-       function greet(name) {
-           console.log(`Hello, ${name}!`);
-       }
-
-       greet.apply(null, ['John']);
-       ```
 
    - **`bind()` method:**
      - The `bind()` method creates a new function that, when called, has its `this` keyword set to a specific value, and returns a bound function.
-     - Example:
-       ```javascript
-       function greet(name) {
-           console.log(`Hello, ${name}!`);
-       }
-
-       const boundGreet = greet.bind(null, 'John');
-       boundGreet();
-       ```
 
    - [Back to Top](#javascript-interview-questions)
 
@@ -249,8 +228,79 @@ By using debouncing and throttling, you can optimize your code for better perfor
 - **Callback Hell:** Due to its asynchronous nature, complex operations may lead to "callback hell," where callbacks are nested deeply, making code harder to read and maintain.
 - **Not Suitable for Heavy Computation:** Node.js is not well-suited for heavy computation tasks as it may block the event loop, affecting application performance.
 - **Immature Modules:** Some npm modules may not be well-maintained or fully reliable, so careful selection and testing are necessary.
-- **Learning Curve:** While JavaScript is popular, the event-driven, asynchronous model of Node.js can present a learning curve for developers new to this approach.
 
 Overall, Node.js is an excellent choice for building scalable and efficient web applications and APIs, particularly when handling many concurrent connections or dealing with real-time data. However, it may not be the best choice for CPU-intensive applications or scenarios requiring heavy computation.
+
+### Q23. What are the core modules in Node.js?
+
+**Common Node.js Core Modules:**
+- **fs (File System):** The `fs` module allows you to interact with the file system, including reading, writing, and manipulating files and directories.
+
+- **http and https:** These modules enable you to create HTTP and HTTPS servers and make requests. They provide methods to handle requests, responses, headers, and other HTTP features.
+
+- **path:** The `path` module provides utilities for working with file and directory paths, such as joining, normalizing, and resolving paths.
+
+- **url:** The `url` module allows you to parse and format URL strings, making it easier to work with URLs.
+
+- **os (Operating System):** The `os` module provides information and utilities related to the operating system, such as user info, system uptime, and CPU details.
+
+- **events:** The `events` module provides an EventEmitter class that allows you to handle and emit events in your application.
+
+- **util:** The `util` module offers utility functions, including debugging, type-checking, and deprecation features.
+
+- **stream:** The `stream` module provides tools to work with streams, such as readable and writable streams, allowing you to handle data in a continuous flow.
+
+- **net:** The `net` module allows you to create network servers and clients for TCP and IPC (inter-process communication) connections.
+
+- **crypto:** The `crypto` module provides cryptographic functions such as hashing, encryption, and decryption.
+
+- **querystring:** The `querystring` module helps you parse and stringify query strings in URLs.
+
+These are just a few examples of the core modules available in Node.js. There are many more modules that offer different functionalities and features. You can find a full list of core modules in the [Node.js documentation](https://nodejs.org/api/). Core modules are fundamental for building robust and efficient Node.js applications.
+### Q24. How would you secure a Node.js server?
+
+1. **Use HTTPS:** 
+    - Always use HTTPS for secure communication between the server and clients. Obtain an SSL/TLS certificate and configure your server to use it.
+
+2. **Input Validation:** 
+    - Validate and sanitize user inputs to prevent injection attacks such as SQL injection and cross-site scripting (XSS). Use appropriate libraries or built-in functions for this purpose.
+
+3. **Implement Authentication and Authorization:**
+    - Use robust authentication methods such as OAuth, OpenID Connect, or token-based authentication (e.g., JWT) to verify users.
+    - Implement proper authorization mechanisms to control access to resources.
+
+4. **Secure Dependencies:**
+    - Keep your dependencies up to date and use trustworthy packages from reputable sources. Use tools like `npm audit` to identify vulnerabilities in your dependencies.
+
+5. **Limit Error Information:**
+    - Avoid exposing detailed error messages to clients. Instead, log errors server-side and return generic messages to the client.
+
+6. **Use Security Headers:**
+    - Configure your server to use security headers like `Content-Security-Policy`, `X-Frame-Options`, `X-XSS-Protection`, and `Strict-Transport-Security`.
+
+7. **Rate Limiting and Throttling:**
+    - Implement rate limiting and throttling to prevent abuse and protect against DoS attacks.
+
+8. **Secure Your Environment:**
+    - Keep your Node.js server updated with the latest patches and security updates.
+    - Use environment variables to store sensitive information such as API keys and database passwords.
+
+9. **Use a Web Application Firewall (WAF):**
+    - A WAF can provide an additional layer of security by filtering and monitoring HTTP traffic.
+
+10. **Protect against CSRF:**
+    - Use techniques such as CSRF tokens to protect against Cross-Site Request Forgery attacks.
+
+11. **Monitor and Audit:**
+    - Continuously monitor your application for security issues and conduct regular security audits.
+
+12. **Secure File and Directory Permissions:**
+    - Set appropriate file and directory permissions to restrict access to only the necessary users and processes.
+
+13. **Limit Privilege:** 
+    - Run your Node.js server with the least privilege required, avoiding running it as a root user.
+
+Implementing these best practices will help you create a more secure Node.js server and reduce the risk of security vulnerabilities in your application. Let me know if there's anything else I can help you with!
+
 
 
