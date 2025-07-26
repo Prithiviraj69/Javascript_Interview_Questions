@@ -46,8 +46,8 @@
    - [Back to Top](#javascript-interview-questions)
 
 ### Q4. Explain the concept of closures in JavaScript.
-   - A closure is a function along with its lexical environment (the environment in which the function was declared). It allows a function to access variables from its outer function even after that function has finished execution.
-   - Closures are useful for maintaining state, creating private variables, and implementing data encapsulation.
+   - A closure allows a function to remember and access variables from its outer scope even after the outer function has completed execution.
+   - For example, if I define a function inside another function, the inner function forms a closure over the outer function’s variables. This is powerful for scenarios like data privacy, counters, and factory functions.
    - [Back to Top](#javascript-interview-questions)
 
 ### Q5. How does prototypal inheritance work in JavaScript?
