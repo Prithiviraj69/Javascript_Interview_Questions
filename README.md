@@ -79,10 +79,10 @@ may inherit from multiple prototypes, and only contains objects.
 
 ### q10-explain-the-callback-promises-async-await-in-javascript.
    - **Callback** :
-   - When you nest a function inside another function as an argument, that's called a callback.
-   - When doing a complex task, we break that task down into smaller steps. To help us establish a relationship between these steps according to time (optional) and order, we use callbacks.
+   - A callback is a function that is passed as an argument to another function and is executed after the outer function completes its task.
+   - It is one of the earliest ways JavaScript handled asynchronous operations (like reading a file, API calls, etc.).
    - **Promises** :
-   - Promises were invented to solve the problem of callback hell and to better handle our tasks.
+   - A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
    - promise has three states:
      1. Pending: This is the initial stage. Nothing happens here. Think of it like this, your customer is taking their time giving you an order. But they haven't ordered anything yet.
      2. Resolved: This means that your customer has received their food and is happy.
