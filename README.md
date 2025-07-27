@@ -23,7 +23,6 @@
 19. **[What is the DOM? How do you manipulate it with JS?](#q19-what-is-the-dom-how-do-you-manipulate-it-with-js)**
 20. **[What are event bubbling and event capturing?](#q20-what-are-event-bubbling-and-event-capturing)**
 21. **[What are localStorage, sessionStorage, and cookies?](#q21-what-are-localstorage-sessionstorage-and-cookies)**
-22. **[What is the difference between null and undefined?](#q22-what-is-the-difference-between-null-and-undefined)**
 
 
 
