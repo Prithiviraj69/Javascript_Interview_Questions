@@ -7,10 +7,10 @@
 3. **[What are primitive vs non-primitive types?](#q3-what-are-primitive-vs-non-primitive-types)**
 4. **[What is hoisting? Give examples.](#q4-what-is-hoisting-give-examples)**
 5. **[What is the difference between regular and arrow functions?](#q5-what-is-the-difference-between-regular-and-arrow-functions)**
-6. **[What is asynchronous programming in JavaScript?](#q6-what-is-asynchronous-programming-in-javascript)**
-7. **[Explain the difference between `==` and `===` in JavaScript.](#q7-explain-the-difference-between-and-in-javascript)**
-8. **[What are Arrow functions in JavaScript?](#q8-what-are-arrow-functions-in-javascript)**
-9. **[What is the significance of the `this` keyword in JavaScript?](#q9-what-is-the-significance-of-the-this-keyword-in-javascript)**
+6. **[What is a closure? How does it work?](#q6-what-is-a-closure-how-does-it-work)**
+7. **[What is the difference between call(), apply(), and bind() in JavaScript?](#q7-what-is-the-difference-between-call-apply-and-bind-in-javascript)**
+8. **[What is IIFE (Immediately Invoked Function Expression)?](#q8-what-is-iife-immediately-invoked-function-expression)**
+9. **[How to create objects in JavaScript?](#q9-how-to-create-objects-in-javascript)**
 10. **[Explain the callback, promises, async/await in JavaScript.](#q10-explain-the-callback-promises-async-await-in-javascript)**
 11. **[What is the purpose of the `setTimeout` function in JavaScript?](#q11-what-is-the-purpose-of-the-settimeout-function-in-javascript)**
 12. **[How can you handle errors in JavaScript?](#q12-how-can-you-handle-errors-in-javascript)**
@@ -105,38 +105,177 @@ let greet = function() { console.log("Hi"); }; // Function
         ```
    - [Back to Top](#javascript-interview-questions)
 
-### Q4. Explain the concept of closures in JavaScript.
-   - A closure allows a function to remember and access variables from its outer scope even after the outer function has completed execution.
-   - For example, if I define a function inside another function, the inner function forms a closure over the outer function’s variables. This is powerful for scenarios like data privacy, counters, and factory functions.
+### Q4. What is hoisting in JavaScript?
+
+Hoisting is JavaScript's behavior of moving variable and function declarations to the top of their scope during the compile phase.
+
+- var is hoisted and initialized as undefined
+
+- let and const are hoisted but not initialized
+
+- Function declarations are hoisted completely (code + definition)
+
+    - Example:
+        ```
+        console.log(a); // undefined
+        var a = 5;
+
+        console.log(b); // ReferenceError
+        let b = 10;
+
+        greet(); // "Hello"
+        function greet() {
+        console.log("Hello");
+        }
+
+        ```
+
    - [Back to Top](#javascript-interview-questions)
 
-### Q5. How does prototypal inheritance work in JavaScript?
-   - JavaScript uses prototypal inheritance, where objects can inherit properties and methods from other objects.
-   - Each object has an internal property called `[[Prototype]]`, and when a property is not found in an object, JavaScript looks for it in the object's prototype, creating a chain.
-   - In classical inheritance, classes are immutable, may or may not support multiple inheritance, and may contain interfaces, final classes, and abstract classes. In contrast, prototypes are much more flexible in the sense that they may be mutable or immutable. The object
-may inherit from multiple prototypes, and only contains objects.
+### Q5. What is the difference between regular functions and arrow functions?
+📌 Regular Functions
+
+- Have their own this context
+- Can access arguments object
+- Can be used as constructors
+- Are hoisted
+
+📌 Arrow Functions
+
+- Don’t have their own this, they inherit it from their parent scope
+- Don’t have arguments object
+- Cannot be used as constructors
+- Not hoisted
+
+    - Example:
+        ```
+        // Regular function
+        function sayHello() {
+        console.log("Hello from regular function");
+        }
+
+        // Arrow function
+        const sayHi = () => {
+        console.log("Hello from arrow function");
+        }
+
+        // `this` behavior
+        const person = {
+        name: "Alice",
+        regularFunc: function () {
+            console.log(this.name); // Alice
+        },
+        arrowFunc: () => {
+            console.log(this.name); // undefined
+        }
+        };
+
+        person.regularFunc();
+        person.arrowFunc();
+
+
+        ```
+
    - [Back to Top](#javascript-interview-questions)
 
-### Q6. What is asynchronous programming in JavaScript?
-   - Asynchronous programming in JavaScript allows code to run without waiting for long-running tasks to finish.
-   - Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
+### Q6. What is a closure? How does it work?
+   - A closure is a function that remembers the variables from its outer lexical scope, even after the outer function has completed execution.
+   - This means a function can "close over" its surrounding scope and still access those variables later.
+
+   - Example:
+        ```
+        function outer() {
+            let count = 0;
+            return function inner() {
+                count++;
+                console.log("Count:", count);
+            };
+        }
+
+        const counter = outer();
+        counter(); // Count: 1
+        counter(); // Count: 2
+        ```
+
+- Here, inner() is a closure — it keeps access to count even after outer() has finished.
    - [Back to Top](#javascript-interview-questions)
 
-### Q7. Explain the difference between `==` and `===` in JavaScript. 
-   - **`==`:** It performs type coercion, allowing different types to be considered equal. For example, `"5" == 5` is true.
-   - **`===`:** It strictly checks for equality without type coercion. `"5" === 5` is false.
+### Q7. What is the difference between call(), apply(), and bind()?
+   - call: Calls a function with a specified this and arguments provided individually.
+
+   - apply: Similar to call, but arguments are provided as an array.
+
+   - bind: Returns a new function, with this set, without invoking immediately.
+   - Example:
+        ```
+        const person = {
+        name: "Alice",
+        greet: function(city) {
+            console.log(`Hello, I'm ${this.name} from ${city}`);
+        }
+        };
+
+        const anotherPerson = { name: "Bob" };
+
+        person.greet.call(anotherPerson, "Mumbai"); // Hello, I'm Bob from Mumbai
+        person.greet.apply(anotherPerson, ["Delhi"]); // Hello, I'm Bob from Delhi
+
+        const boundGreet = person.greet.bind(anotherPerson, "Pune");
+        boundGreet(); // Hello, I'm Bob from Pune
+
+        ```
    - [Back to Top](#javascript-interview-questions)
 
-### Q8. What are Arrow functions in JavaScript?
-   - Arrow function {()=>} is concise way of writing JavaScript functions in shorter way. They make our code more structured and readable.
-   - Arrow functions are anonymous functions i.e. functions without a name but they are often assigned to any variable. They are also called Lambda Functions.
+### Q8. What is IIFE (Immediately Invoked Function Expression)?
+   - An IIFE is a function that runs as soon as it is defined. It is often used to avoid polluting the global scope or to create private variables.
+   - Example:
+        ```
+        (function () {
+            let message = "This runs immediately!";
+            console.log(message);
+        })(); // Output: This runs immediately!
+
+        ```
    - [Back to Top](#javascript-interview-questions)
 
-### Q9. What is the significance of the `this` keyword in JavaScript?
-   - The `this` keyword refers to the object it belongs to. In a function, `this` refers to the global object (window in a browser).
-   - In methods, `this` refers to the object that owns the method. Arrow functions don't have their own `this` but inherit it from the enclosing scope.
-   - [Back to Top](#javascript-interview-questions)
+### Q9. How to create objects in JavaScript?
+   - There are several ways to create objects:
+   ✅ Object Literal
+   - Example:
+     ```
+            const person = { name: "Alice", age: 25 };
 
+     ```
+   ✅ Constructor Function
+   - Example:
+     ```
+            function Person(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            const user = new Person("Bob", 30);
+
+     ```
+   ✅ Object.create()
+  - Example:
+     ```
+            const proto = { greet: function() { console.log("Hello"); } };
+            const obj = Object.create(proto);
+            obj.greet(); // Hello
+     ```
+   ✅ Class Syntax (ES6)
+   - Example:
+     ```
+            class Person {
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+            }
+            const user = new Person("Charlie", 40);
+     ```
+
+   - [Back to Top](#javascript-interview-questions)
 ### q10-explain-the-callback-promises-async-await-in-javascript.
    - **Callback** :
    - A callback is a function that is passed as an argument to another function and is executed after the outer function completes its task.
