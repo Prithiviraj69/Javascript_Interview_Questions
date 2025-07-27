@@ -5,7 +5,7 @@
 1. **[What are the different data types in JavaScript?](#q1-what-are-the-different-data-types-in-javascript)**
 2. **[What is the difference between `var`, `let`, and `const`?](#q2-what-is-the-difference-between-var-let-and-const)**
 3. **[What are primitive vs non-primitive types?](#q3-what-are-primitive-vs-non-primitive-types)**
-4. **[What is hoisting? Give examples.](#q4-what-is-hoisting-give-examples)**
+4. **[What is hoisting in JavaScript? Give examples.](#q4-what-is-hoisting-give-examples)**
 5. **[What is the difference between regular and arrow functions?](#q5-what-is-the-difference-between-regular-and-arrow-functions)**
 6. **[What is a closure? How does it work?](#q6-what-is-a-closure-how-does-it-work)**
 7. **[What is the difference between call(), apply(), and bind() in JavaScript?](#q7-what-is-the-difference-between-call-apply-and-bind-in-javascript)**
@@ -55,7 +55,7 @@ let greet = function() { console.log("Hi"); }; // Function
 ```
 - [Back to Top](#javascript-interview-questions)
 
-### Q2. Explain the difference between `let`, `const`, and `var` in JavaScript. 
+### Q2. What is the difference between `var`, `let`, and `const`?
    - **`let`:** It allows the declaration of block-scoped variables. The variable can be reassigned within the same block.
    - **`const`:** It also declares block-scoped variables but is used for constants that cannot be reassigned.
    - **`var`:** It declares a variable globally or locally to the entire function, regardless of block scope. It can be reassigned.
