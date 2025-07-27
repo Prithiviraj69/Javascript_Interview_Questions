@@ -200,7 +200,7 @@ Hoisting is JavaScript's behavior of moving variable and function declarations t
 - Here, inner() is a closure — it keeps access to count even after outer() has finished.
    - [Back to Top](#javascript-interview-questions)
 
-### Q7. What is the difference between call(), apply(), and bind()?
+### Q7. What is the difference between call(), apply(), and bind() in JavaScript?
    - call: Calls a function with a specified this and arguments provided individually.
 
    - apply: Similar to call, but arguments are provided as an array.
