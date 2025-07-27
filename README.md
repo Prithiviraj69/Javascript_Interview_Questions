@@ -1,11 +1,12 @@
 # JavaScript_Interview_Question
 
 ## JavaScript Interview Questions
-1. **[What is JavaScript?](#q1-what-is-javascript)**
-2. **[Explain the difference between `let`, `const`, and `var` in JavaScript.](#q2-explain-the-difference-between-let-const-and-var-in-javascript)**
-3. **[What is the DOM in JavaScript?](#q3-what-is-the-dom-in-javascript)**
-4. **[Explain the concept of closures in JavaScript.](#q4-explain-the-concept-of-closures-in-javascript)**
-5. **[How does prototypal inheritance differ from classical inheritance?](#q5-how-does-prototypal-inheritance-work-in-javascript)**
+
+1. **[What are the different data types in JavaScript?](#q1-what-are-the-different-data-types-in-javascript)**
+2. **[What is the difference between `var`, `let`, and `const`?](#q2-what-is-the-difference-between-var-let-and-const)**
+3. **[What are primitive vs non-primitive types?](#q3-what-are-primitive-vs-non-primitive-types)**
+4. **[What is hoisting? Give examples.](#q4-what-is-hoisting-give-examples)**
+5. **[What is the difference between regular and arrow functions?](#q5-what-is-the-difference-between-regular-and-arrow-functions)**
 6. **[What is asynchronous programming in JavaScript?](#q6-what-is-asynchronous-programming-in-javascript)**
 7. **[Explain the difference between `==` and `===` in JavaScript.](#q7-explain-the-difference-between-and-in-javascript)**
 8. **[What are Arrow functions in JavaScript?](#q8-what-are-arrow-functions-in-javascript)**
