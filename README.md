@@ -41,21 +41,21 @@
    - Example:
         ```
         function testVar() {
-     if (true) {
-    var x = 1;
-     }
-     console.log(x); // 1 (var is function-scoped)
-      }
+           if (true) {
+             var x = 1;
+           }
+           console.log(x); // 1 (var is function-scoped)
+         }
 
-      function testLet() {
-     if (true) {
-    let y = 2;
-     }
-     // console.log(y); // Error! y is block-scoped
-      }
+         function testLet() {
+           if (true) {
+             let y = 2;
+           }
+           // console.log(y); // Error! y is block-scoped
+         }
 
-      const z = 3;
-      // z = 4; // Error! Cannot re-assign const
+         const z = 3;
+         // z = 4; // Error! Cannot re-assign const
 
         ```
    - [Back to Top](#javascript-interview-questions)
