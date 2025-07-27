@@ -11,15 +11,15 @@
 7. **[What is the difference between call(), apply(), and bind() in JavaScript?](#q7-what-is-the-difference-between-call-apply-and-bind-in-javascript)**
 8. **[What is IIFE (Immediately Invoked Function Expression)?](#q8-what-is-iife-immediately-invoked-function-expression)**
 9. **[How to create objects in JavaScript?](#q9-how-to-create-objects-in-javascript)**
-10. **[What is the difference between == and ===?](#q10-what-is-the-difference-between-==-and-===)**
+10. **[What is the difference between == and ===?](#q10-what-is-the-difference-between--and-)**
 11. **[What are JavaScript array methods like map(), filter(), reduce(), find(), etc.?](#q11-what-are-JavaScript-array-methods-like-map-filter-reduce-find-etc)**
 12. **[What are callbacks? How do they work?](#q12-what-are-callbacks-How-do-they-work)**
 13. **[What are Promises? How are they better than callbacks?](#q13-what-are-Promises-How-are-they-better-than-callbacks)**
 14. **[What is async/await? How is it better than .then()?](#q14-what-is-asyncawait-how-is-it-better-than-then)**
-15. **[What is the Event Loop in JavaScript?](#q15-what-is-the-difference-between-==-and-===)**
-16. **[Explain microtask vs macrotask queue.](#q16-what-are-JavaScript-array-methods-like-map-filter-reduce-find-etc)**
-17. **[What are setTimeout, setInterval, and clearTimeout?](#q17-what-are-callbacks-How-do-they-work)**
-18. **[What is callback hell and how do you avoid it?](#q18-what-are-Promises-How-are-they-better-than-callbacks)**
+15. **[What is the Event Loop in JavaScript?](#q15-what-is-the-event-loop-in-javascript)**
+16. **[Explain microtask vs macrotask queue.](#q16-explain-microtask-vs-macrotask-queue)**
+17. **[What are setTimeout, setInterval, and clearTimeout?](#q17-what-are-settimeout-setinterval-and-cleartimeout)**
+18. **[What is callback hell and how do you avoid it?](#q18-what-is-callback-hell-and-how-do-you-avoid-it)**
 
 
 # Questions and Answers
