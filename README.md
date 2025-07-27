@@ -6,7 +6,7 @@
 2. **[What is the difference between `var`, `let`, and `const`?](#q2-what-is-the-difference-between-var-let-and-const)**
 3. **[What are primitive vs non-primitive types?](#q3-what-are-primitive-vs-non-primitive-types)**
 4. **[What is hoisting in JavaScript?](#q4-what-is-hoisting-in-JavaScript)**  
-5. **[What is the difference between regular and arrow functions?](#q5-what-is-the-difference-between-regular-and-arrow-functions)**
+5. **[What is the difference between regular functions and arrow functions?](#q5-what-is-the-difference-between-regular-functions-and-arrow-functions)**
 6. **[What is a closure? How does it work?](#q6-what-is-a-closure-how-does-it-work)**
 7. **[What is the difference between call(), apply(), and bind() in JavaScript?](#q7-what-is-the-difference-between-call-apply-and-bind-in-javascript)**
 8. **[What is IIFE (Immediately Invoked Function Expression)?](#q8-what-is-iife-immediately-invoked-function-expression)**
