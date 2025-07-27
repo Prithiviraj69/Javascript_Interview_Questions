@@ -38,6 +38,26 @@
    - **`let`:** It allows the declaration of block-scoped variables. The variable can be reassigned within the same block.
    - **`const`:** It also declares block-scoped variables but is used for constants that cannot be reassigned.
    - **`var`:** It declares a variable globally or locally to the entire function, regardless of block scope. It can be reassigned.
+   - Example:
+        ```
+        function testVar() {
+  if (true) {
+    var x = 1;
+  }
+  console.log(x); // 1 (var is function-scoped)
+}
+
+function testLet() {
+  if (true) {
+    let y = 2;
+  }
+  // console.log(y); // Error! y is block-scoped
+}
+
+const z = 3;
+// z = 4; // Error! Cannot re-assign const
+
+        ```
    - [Back to Top](#javascript-interview-questions)
 
 ### Q3. What is the DOM in JavaScript?
