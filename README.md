@@ -11,11 +11,15 @@
 7. **[What is the difference between call(), apply(), and bind() in JavaScript?](#q7-what-is-the-difference-between-call-apply-and-bind-in-javascript)**
 8. **[What is IIFE (Immediately Invoked Function Expression)?](#q8-what-is-iife-immediately-invoked-function-expression)**
 9. **[How to create objects in JavaScript?](#q9-how-to-create-objects-in-javascript)**
-10. **[What is the difference between == and ===?](#q0-what-is-the-difference-between-==-and-===)**
+10. **[What is the difference between == and ===?] (#q10-what-is-the-difference-between-==-and-===)**
 11. **[What are JavaScript array methods like map(), filter(), reduce(), find(), etc.?](#q11-what-are-JavaScript-array-methods-like-map-filter-reduce-find-etc)**
 12. **[What are callbacks? How do they work?](#q12-what-are-callbacks-How-do-they-work)**
 13. **[What are Promises? How are they better than callbacks?](#q13-what-are-Promises-How-are-they-better-than-callbacks)**
-14. **[How to create objects in JavaScript?](#q9-how-to-create-objects-in-javascript)**
+14. **[What is async/await? How is it better than .then()?](#q14-how-to-create-objects-in-javascript)**
+15. **[What is the Event Loop in JavaScript?] (#q15-what-is-the-difference-between-==-and-===)**
+16. **[Explain microtask vs macrotask queue.](#q16-what-are-JavaScript-array-methods-like-map-filter-reduce-find-etc)**
+17. **[What are setTimeout, setInterval, and clearTimeout?](#q17-what-are-callbacks-How-do-they-work)**
+18. **[What is callback hell and how do you avoid it?](#q18-what-are-Promises-How-are-they-better-than-callbacks)**
 
 
 # Questions and Answers
@@ -334,37 +338,122 @@ Hoisting is JavaScript's behavior of moving variable and function declarations t
 
 - [Back to Top](#javascript-interview-questions)
 
-### Q14. What is the difference between `null` and `undefined` in JavaScript?
-   - **`null`:** It represents the intentional absence of any object value. It must be assigned.
-   - **`undefined`:** It represents an uninitialized or unassigned value. Variables that are not assigned a value are `undefined`.
-   - [Back to Top](#javascript-interview-questions)
+### Q14. What is async/await? How is it better than .then()?
+   - async/await is syntactic sugar over Promises in JavaScript. It makes asynchronous code look and behave like synchronous code, improving readability and maintainability.
 
-### Q15. What is Map, Filter, Reduce?
-   - **Map** :
-   - The map() method is used for creating a new array from an existing one, applying a function to each one of the elements of the first array.
-   - n the callback, only the array element is required. Usually some action is performed on the value and then a new value is returned.
-   - **Filter** :
-   - The filter() method takes each element in an array and it applies a conditional statement against it. If this conditional returns true, the element gets pushed to the output array. If the condition returns false, the element does not get pushed to the output array.
-   - The syntax for filter is similar to map, except the callback function should return true to keep the element, or false otherwise. In the callback, only the element is required.
-   - **Reduce** :
-   - The reduce() method reduces an array of values down to just one value. To get the output value, it runs a reducer function on each element of the array.
-   - The callback argument is a function that will be called once for every item in the array. This function takes four arguments, but often only the first two are used.
-   - [Back to Top](#javascript-interview-questions)
+   - **async:** Declares a function as asynchronous. It returns a promise.
+   - **await:** Pauses the execution of an async function until the promise is resolved or rejected.
 
-### Q16. Explain the concept of hoisting in JavaScript.
-   - Hoisting is a JavaScript behavior where variable and function declarations are moved to the top of their containing scope during the compilation phase.
-   - Variables declared with `var` are hoisted and initialized with `undefined`. Function declarations are fully hoisted.
-   - [Back to Top](#javascript-interview-questions)
+   - Example:
+     ```
+       // Using .then()
+            fetch("https://api.example.com/data")
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.error(err));
 
-### Q17. What is the role of the `document.write()` method?
-   - The `document.write()` method is used to write HTML expressions or JavaScript code to a document.
-   - It is typically used for testing and dynamically generating content, but it can cause issues with the document structure if used after the page has loaded.
-   - [Back to Top](#javascript-interview-questions)
+            // Using async/await
+            async function getData() {
+            try {
+                const res = await fetch("https://api.example.com/data");
+                const data = await res.json();
+                console.log(data);
+            } catch (err) {
+                console.error(err);
+            }
+            }
+            getData();
+     ```
 
-### Q18. How does the `localStorage` differ from `sessionStorage` in JavaScript?
-   - **`localStorage`:** Data stored in `localStorage` persists even after the browser is closed. It has no expiration time.
-   - **`sessionStorage`:** Data stored in `sessionStorage` is limited to the duration of the page session. It is cleared when the page session ends.
-   - [Back to Top](#javascript-interview-questions)
+   ✅ Readability:
+- Code written with async/await is often easier to read and write than chaining multiple .then() calls, especially for sequential asynchronous steps.
+
+✅ Error Handling:
+- You can use try/catch with async/await just like synchronous code.
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q15. What is the Event Loop in JavaScript?
+- The Event Loop is a mechanism in JavaScript that handles asynchronous operations like callbacks, promises, and events.
+
+- JavaScript is single-threaded, but it uses the event loop to manage tasks asynchronously without blocking the main thread.
+🌀 Flow:
+
+- Executes code from the call stack.
+- Sends async tasks to Web APIs (e.g., setTimeout, fetch).
+- Once done, the callback gets queued in task queues (macro/micro).
+- The event loop checks the call stack. If it's empty, it moves tasks from the queue to the call stack.
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q16. Explain microtask vs macrotask queue.
+   - Microtask queue: Used for tasks like resolved Promises and MutationObservers.
+    - Executes after the current script but before any macrotask (like a timer or event).
+
+- Macrotask queue: Used for timers (setTimeout, setInterval), UI events, I/O, etc.
+
+**Execution Order:**
+ After every synchronous code block, all microtasks are run, then the first macrotask is processed, then microtasks again, and so on.
+- Example:
+     ```
+       console.log('Start');
+        setTimeout(() => console.log('Macrotask'), 0); // macrotask
+        Promise.resolve().then(() => console.log('Microtask')); // microtask
+        console.log('End');
+
+        // Output:
+        // Start
+        // End
+        // Microtask
+        // Macrotask
+
+     ```
+- [Back to Top](#javascript-interview-questions)
+
+### Q17. What are setTimeout, setInterval, and clearTimeout?
+   - setTimeout(fn, delay): Runs a function once after a delay (in ms).
+
+- setInterval(fn, delay): Runs a function repeatedly with a fixed delay between runs.
+
+- clearTimeout(id) / clearInterval(id): Stops an active scheduled timeout or interval, using the ID returned by setTimeout/setInterval.
+   - Example:
+     ```
+       // setTimeout
+        const timeoutId = setTimeout(() => {
+        console.log("Runs once after 1 second");
+        }, 1000);
+
+        // setInterval
+        const intervalId = setInterval(() => {
+        console.log("Runs every 2 seconds");
+        }, 2000);
+
+        // clearInterval/clearTimeout
+        clearTimeout(timeoutId);    // Cancels the scheduled timeout
+        clearInterval(intervalId);  // Cancels the setInterval
+     ```
+- [Back to Top](#javascript-interview-questions)
+
+### Q18. What is callback hell and how do you avoid it?
+   - Callback Hell refers to nested callbacks that make code hard to read and maintain.
+   - Example:
+     ```
+      // Callback Hell
+        loginUser("user", () => {
+        fetchProfile(() => {
+            loadDashboard(() => {
+            console.log("Dashboard loaded");
+            });
+        });
+        });
+
+     ```
+- How to avoid callback hell?
+    - Use Promises: Enables chaining and flattens the code.
+    - Use async/await: Makes async code look synchronous.
+    - Use named functions instead of inline.
+   
+- [Back to Top](#javascript-interview-questions)
 
 ### Q19. What is the difference between SQL and NoSQL databases?
    **SQL Databases:**
