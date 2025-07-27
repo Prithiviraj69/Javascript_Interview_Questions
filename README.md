@@ -81,9 +81,28 @@ let greet = function() { console.log("Hi"); }; // Function
         ```
    - [Back to Top](#javascript-interview-questions)
 
-### Q3. What is the DOM in JavaScript?
-   - The DOM (Document Object Model) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content dynamically.
-   - The DOM represents the document as a tree of nodes, where each node corresponds to part of the page (e.g., elements, attributes, text).
+### Q3. What are primitive vs non-primitive types?
+
+   - 📌 Primitive Types:
+
+      Store actual value
+      Immutable (cannot be changed)
+      Examples: String, Number, Boolean, null, undefined, Symbol, BigInt
+
+   - 📌 Non-Primitive Types:
+
+      Store reference to value
+      Mutable (can be changed)
+      Examples: Object, Array, Function
+    - Example:
+        ```
+        let a = "hello"; // primitive
+      let b = { msg: "hi" }; // non-primitive
+      
+      let c = b;
+      c.msg = "hello again";
+      console.log(b.msg); // Output: "hello again"
+        ```
    - [Back to Top](#javascript-interview-questions)
 
 ### Q4. Explain the concept of closures in JavaScript.
