@@ -23,7 +23,8 @@
 19. **[What is the DOM? How do you manipulate it with JS?](#q19-what-is-the-dom-how-do-you-manipulate-it-with-js)**
 20. **[What are event bubbling and event capturing?](#q20-what-are-event-bubbling-and-event-capturing)**
 21. **[What are localStorage, sessionStorage, and cookies?](#q21-what-are-localstorage-sessionstorage-and-cookies)**
-
+22. **[What is the `this` keyword and how does it behave in different contexts?](#q22-what-is-the-this-keyword-and-how-does-it-behave-in-different-contexts)**
+23. **[What is destructuring in JavaScript (arrays/objects)?](#q23-what-is-destructuring-in-javascript-arraysobjects)**
 
 
 # Questions and Answers
@@ -509,53 +510,23 @@ document.body.appendChild(newPara);
      ```
 - [Back to Top](#javascript-interview-questions)
 
-### Q22. What is Node.js? What are its advantages and disadvantages?
+### Q22. What is the `this` keyword and how does it behave in different contexts?
 
-**Node.js** is an open-source, cross-platform JavaScript runtime environment that allows developers to build server-side and network applications using JavaScript. It is built on the V8 JavaScript engine developed by Google and is known for its event-driven, non-blocking I/O model, which makes it efficient and suitable for scalable applications.
+- The this keyword refers to the execution context (the object that owns the current code). Its value depends on how a function is called:
 
-**Advantages of Node.js:**
-- **Asynchronous and Event-Driven:** Node.js is based on an asynchronous, non-blocking I/O model that makes it suitable for handling concurrent requests efficiently.
-- **Single Language for Both Server and Client:** Since it uses JavaScript, developers can write both server-side and client-side code in the same language, making it easier to maintain and share code.
-- **Large Ecosystem:** Node.js has a large ecosystem of packages and libraries available through npm (Node Package Manager), making it easier to find and integrate tools and modules.
-- **Fast Performance:** Being built on the V8 engine, Node.js offers high-speed execution and performance.
-- **Community Support:** Node.js has a large and active community, providing plenty of support, resources, and continuous improvements.
+   - Global context: In the browser, this refers to the window object. In strict mode or Node.js global scope, it's undefined.
 
-**Disadvantages of Node.js:**
-- **Single-threaded:** While Node.js uses a non-blocking I/O model, it operates as a single-threaded environment, which can lead to performance issues when handling CPU-intensive tasks.
-- **Callback Hell:** Due to its asynchronous nature, complex operations may lead to "callback hell," where callbacks are nested deeply, making code harder to read and maintain.
-- **Not Suitable for Heavy Computation:** Node.js is not well-suited for heavy computation tasks as it may block the event loop, affecting application performance.
-- **Immature Modules:** Some npm modules may not be well-maintained or fully reliable, so careful selection and testing are necessary.
+   - Object method: this refers to the object before the dot.
 
-Overall, Node.js is an excellent choice for building scalable and efficient web applications and APIs, particularly when handling many concurrent connections or dealing with real-time data. However, it may not be the best choice for CPU-intensive applications or scenarios requiring heavy computation.
+   - Constructor: Inside a constructor function/class, this refers to the newly created instance.
+
+   - Arrow functions: Do not have their own this; they inherit from the outer (lexical) context.
 
 - [Back to Top](#javascript-interview-questions)
 
-### Q23. What are the core modules in Node.js?
+### Q23. What is destructuring in JavaScript (arrays/objects)?
 
-**Common Node.js Core Modules:**
-- **fs (File System):** The `fs` module allows you to interact with the file system, including reading, writing, and manipulating files and directories.
-
-- **http and https:** These modules enable you to create HTTP and HTTPS servers and make requests. They provide methods to handle requests, responses, headers, and other HTTP features.
-
-- **path:** The `path` module provides utilities for working with file and directory paths, such as joining, normalizing, and resolving paths.
-
-- **url:** The `url` module allows you to parse and format URL strings, making it easier to work with URLs.
-
-- **os (Operating System):** The `os` module provides information and utilities related to the operating system, such as user info, system uptime, and CPU details.
-
-- **events:** The `events` module provides an EventEmitter class that allows you to handle and emit events in your application.
-
-- **util:** The `util` module offers utility functions, including debugging, type-checking, and deprecation features.
-
-- **stream:** The `stream` module provides tools to work with streams, such as readable and writable streams, allowing you to handle data in a continuous flow.
-
-- **net:** The `net` module allows you to create network servers and clients for TCP and IPC (inter-process communication) connections.
-
-- **crypto:** The `crypto` module provides cryptographic functions such as hashing, encryption, and decryption.
-
-- **querystring:** The `querystring` module helps you parse and stringify query strings in URLs.
-
-These are just a few examples of the core modules available in Node.js. There are many more modules that offer different functionalities and features. You can find a full list of core modules in the [Node.js documentation](https://nodejs.org/api/). Core modules are fundamental for building robust and efficient Node.js applications.
+- Destructuring is a syntax for extracting values from arrays or objects into distinct variables, making code cleaner and more concise.
 
 - [Back to Top](#javascript-interview-questions)
   
