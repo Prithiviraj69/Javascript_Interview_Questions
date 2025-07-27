@@ -30,10 +30,30 @@
 
 # Questions and Answers
 
-### Q1. What is JavaScript?
-   - JavaScript is a versatile programming language primarily known for its role in web development.
-   - It is a high-level, interpreted scripting language that allows developers to add dynamic and interactive elements to websites.
-   - [Back to Top](#javascript-interview-questions)
+### Q1. What are the different data types in JavaScript?
+
+JavaScript supports two broad categories of data types:
+
+#### ✅ Primitive Data Types:
+- **String**, **Number**, **Boolean**, **null**, **undefined**, **Symbol**, **BigInt**
+
+#### ✅ Non-Primitive (Reference) Data Types:
+- **Object**, **Array**, **Function**
+
+```js
+// Primitive types
+let name = "John";     // String
+let age = 30;          // Number
+let isLoggedIn = true; // Boolean
+let nothing = null;    // null
+let notDefined;        // undefined
+
+// Non-primitive types
+let person = { name: "Alice", age: 25 }; // Object
+let colors = ["red", "blue"];            // Array
+let greet = function() { console.log("Hi"); }; // Function
+```
+- [Back to Top](#javascript-interview-questions)
 
 ### Q2. Explain the difference between `let`, `const`, and `var` in JavaScript. 
    - **`let`:** It allows the declaration of block-scoped variables. The variable can be reassigned within the same block.
