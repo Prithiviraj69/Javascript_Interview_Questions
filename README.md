@@ -20,6 +20,11 @@
 16. **[Explain microtask vs macrotask queue.](#q16-explain-microtask-vs-macrotask-queue)**
 17. **[What are setTimeout, setInterval, and clearTimeout?](#q17-what-are-settimeout-setinterval-and-cleartimeout)**
 18. **[What is callback hell and how do you avoid it?](#q18-what-is-callback-hell-and-how-do-you-avoid-it)**
+19. **[What is the DOM? How do you manipulate it with JS?](#q19-what-is-the-dom-how-do-you-manipulate-it-with-js)**
+20. **[What are event bubbling and event capturing?](#q20-what-are-event-bubbling-and-event-capturing)**
+21. **[What are localStorage, sessionStorage, and cookies?](#q21-what-are-localstorage-sessionstorage-and-cookies)**
+22. **[What is the difference between null and undefined?](#q22-what-is-the-difference-between-null-and-undefined)**
+
 
 
 # Questions and Answers
@@ -455,51 +460,55 @@ Hoisting is JavaScript's behavior of moving variable and function declarations t
    
 - [Back to Top](#javascript-interview-questions)
 
-### Q19. What is the difference between SQL and NoSQL databases?
-   **SQL Databases:**
-- **Schema-based:** SQL databases use a predefined schema, which includes table structures, relationships, and data types.
-- **Structured data:** They are ideal for handling structured data that follows a strict format.
-- **Relational model:** These databases use tables to represent data, with relationships between tables maintained using foreign keys.
-- **ACID compliance:** SQL databases are known for their support of ACID properties (Atomicity, Consistency, Isolation, Durability), which ensures data integrity.
-- **Query language:** SQL databases use Structured Query Language (SQL) for querying and manipulating data.
-- **Examples:** MySQL, PostgreSQL, Oracle, Microsoft SQL Server.
+### Q19. What is the DOM? How do you manipulate it with JS?
 
-**NoSQL Databases:**
-- **Flexible schema:** NoSQL databases do not require a predefined schema, allowing for flexibility in handling different data types and structures.
-- **Unstructured data:** They are suitable for managing unstructured or semi-structured data, such as JSON or XML.
-- **Various data models:** NoSQL databases offer different data models, including key-value stores, document stores, column-family stores, and graph databases.
-- **Scalability:** NoSQL databases are often more scalable and can handle large amounts of data across distributed systems.
-- **BASE properties:** Instead of ACID, NoSQL databases prioritize BASE properties (Basically Available, Soft state, Eventual consistency) for distributed systems.
-- **Examples:** MongoDB, Cassandra, CouchDB, Redis, Neo4j.
+- The **DOM (Document Object Model)** is a programming interface that represents the structure of an HTML document as a tree of objects.
+- JavaScript uses the DOM to dynamically access and manipulate elements, attributes, and styles on a web page.
+- Example :
+```
+// Accessing an element
+const heading = document.getElementById("title");
 
-In summary, SQL databases are suitable for structured data and require a predefined schema, whereas NoSQL databases offer flexibility in handling unstructured data and can be more scalable. The choice between SQL and NoSQL depends on the specific requirements of your application.
-   - [Back to Top](#javascript-interview-questions)
+// Changing text content
+heading.textContent = "Hello World";
 
-### Q20. What are debouncing and throttling in JavaScript?
+// Changing styles
+heading.style.color = "blue";
 
-**Debouncing:**
-Debouncing is a technique used to limit the execution of a function call. It delays the execution of the function until after a certain period of time has passed since the last function call. If the function is called again before the delay period is over, the timer resets and the function execution is postponed. This can be useful in scenarios such as handling input events, where you want to wait for the user to stop typing before processing their input.
+// Creating and appending elements
+const newPara = document.createElement("p");
+newPara.textContent = "I was added using JS!";
+document.body.appendChild(newPara);
+```
+- [Back to Top](#javascript-interview-questions)
 
-**Throttling:**
-Throttling is a technique used to limit the execution of an event handler function to a specific rate. It ensures that the function is executed at most once in a given period of time, even if the event occurs multiple times. This is beneficial in scenarios such as handling browser resizing or scrolling events, where continuous execution can cause performance issues.
+### Q20. What are event bubbling and event capturing?
 
-By using debouncing and throttling, you can optimize your code for better performance and avoid unnecessary function calls.
+- Event Bubbling: Events start from the innermost element and bubble up to its ancestors.
 
-   - [Back to Top](#javascript-interview-questions)
+- Event Capturing (Trickling): Events are first captured by the outermost ancestor and propagated inward.
 
-### Q21. Explain `call()`, `apply()`, and `bind()` methods in JavaScript.
-   - In JavaScript, `call()`, `apply()`, and `bind()` are methods used to manipulate the context (the value of `this`) in which a function is executed.
+- [Back to Top](#javascript-interview-questions)
 
-   - **`call()` method:**
-     - The `call()` method is used to invoke a function with a specific `this` value and arguments provided individually.
+### Q21. What are localStorage, sessionStorage, and cookies?
+- localStorage : Stores data in the browser with no expiration. Survives page reloads and browser restarts.
 
-   - **`apply()` method:**
-     - The `apply()` method is similar to `call()`, but it takes an array of arguments instead of listing them individually.
+- sessionStorage : Stores data for the current session only. Data is cleared when the page or browser is closed.
 
-   - **`bind()` method:**
-     - The `bind()` method creates a new function that, when called, has its `this` keyword set to a specific value, and returns a bound function.
-
-   - [Back to Top](#javascript-interview-questions)
+- Cookies : Small data pieces sent to and from the server with every HTTP request, can have an expiration date, and are accessible from both client and optionally the server.
+- Example:
+     ```
+     // localStorage
+      localStorage.setItem("name", "John");
+      console.log(localStorage.getItem("name"));
+      
+      // sessionStorage
+      sessionStorage.setItem("temp", "123");
+      
+      // cookies
+      document.cookie = "user=John; expires=Fri, 1 Aug 2025 12:00:00 UTC";
+     ```
+- [Back to Top](#javascript-interview-questions)
 
 ### Q22. What is Node.js? What are its advantages and disadvantages?
 
