@@ -11,22 +11,12 @@
 7. **[What is the difference between call(), apply(), and bind() in JavaScript?](#q7-what-is-the-difference-between-call-apply-and-bind-in-javascript)**
 8. **[What is IIFE (Immediately Invoked Function Expression)?](#q8-what-is-iife-immediately-invoked-function-expression)**
 9. **[How to create objects in JavaScript?](#q9-how-to-create-objects-in-javascript)**
-10. **[Explain the callback, promises, async/await in JavaScript.](#q10-explain-the-callback-promises-async-await-in-javascript)**
-11. **[What is the purpose of the `setTimeout` function in JavaScript?](#q11-what-is-the-purpose-of-the-settimeout-function-in-javascript)**
-12. **[How can you handle errors in JavaScript?](#q12-how-can-you-handle-errors-in-javascript)**
-13. **[What is an event loop in JavaScript?](#what-is-an-event-loop-in-javascript)**
-14. **[What is the difference between `null` and `undefined` in JavaScript?](#q14-what-is-the-difference-between-null-and-undefined-in-javascript)**
-15. **[What is Map, Filter, Reduce?](#q15-what-is-map-filter-reduce)**
-16. **[Explain the concept of hoisting in JavaScript.](#q16-explain-the-concept-of-hoisting-in-javascript)**
-17. **[What is the role of the `document.write()` method?](#q17-what-is-the-role-of-the-documentwrite-method)**
-18. **[How does the `localStorage` differ from `sessionStorage` in JavaScript?](#q18-how-does-the-localstorage-differ-from-sessionstorage-in-javascript)**
-19. **[What is the difference between SQL and NoSQL databases?](#what-is-the-difference-between-sql-and-nosql-databases)**
-20. **[What are debouncing and throttling in JavaScript?](#q20-what-are-debouncing-and-throttling-in-javascript)**
-21. **[Explain `call()`, `apply()`, and `bind()` methods in JavaScript.](#q21-explain-call-apply-and-bind-methods-in-javascript)**
-22. **[What is Node.js? What are its advantages and disadvantages?](#q22-what-is-nodejs-what-are-its-advantages-and-disadvantages)**
-23. **[What are the core modules in Node.js?](#what-are-the-core-modules-in-nodejs)**
-24. **[How would you secure a Node.js server?](#how-would-you-secure-a-nodejs-server)**
-25. **[What are SQL joins?](#what-are-sql-joins)**
+10. **[What is the difference between == and ===?] (#q0-what-is-the-difference-between-==-and-===)**
+11. **[What are JavaScript array methods like map(), filter(), reduce(), find(), etc.?](#q11-what-are-JavaScript-array-methods-like-map-filter-reduce-find-etc)**
+12. **[What are callbacks? How do they work?](#q12-what-are-callbacks-How-do-they-work)**
+13. **[What are Promises? How are they better than callbacks?](#q13-what-are-Promises-How-are-they-better-than-callbacks)**
+14. **[How to create objects in JavaScript?](#q9-how-to-create-objects-in-javascript)**
+
 
 # Questions and Answers
 
@@ -276,60 +266,73 @@ Hoisting is JavaScript's behavior of moving variable and function declarations t
      ```
 
    - [Back to Top](#javascript-interview-questions)
-### q10-explain-the-callback-promises-async-await-in-javascript.
-   - **Callback** :
-   - A callback is a function that is passed as an argument to another function and is executed after the outer function completes its task.
-   - It is one of the earliest ways JavaScript handled asynchronous operations (like reading a file, API calls, etc.).
-   - **Promises** :
-   - A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value.
-   - promise has three states:
-     1. Pending: This is the initial stage. Nothing happens here. Think of it like this, your customer is taking their time giving you an order. But they haven't ordered anything yet.
-     2. Resolved: This means that your customer has received their food and is happy.
-     3. Rejected: This means that your customer didn't receive their order and left the restaurant.
-   - **Aysnc** :
-   - The Async function simply allows us to write promises-based code as if it were synchronous and it checks that we are not breaking the execution thread.
-   - Async functions will always return a value. It makes sure that a promise is returned and if it is not returned then JavaScript automatically wraps it in a promise which is resolved with its value.
-   - **Await** :
-   - Await is used to wait for the promise. It could be used within the async block only.It makes the code wait until the promise returns a result. 
+### q10. What is the difference between == and ===?
+   - == (loose equality) compares two values for equality after converting both values to a common type (type coercion).
 
+   - === (strict equality) checks for both value and type — no type conversion is performed.
+   - Example:
+     ```
+           console.log(2 == "2");   // true  (string "2" is converted to number)
+           console.log(2 === "2");  // false (types are different)
+           console.log(null == undefined);  // true (special case)
+           console.log(null === undefined); // false
+     ```
    - [Back to Top](#javascript-interview-questions)
 
-### Q11. What is the purpose of the `setTimeout` function in JavaScript?
-   - The `setTimeout` function is used to delay the execution of a function or a piece of code for a specified amount of time (in milliseconds).
-   - It's commonly used to create delays in animations, execute code after a certain interval, or simulate asynchronous behavior.
+### Q11. What are JavaScript array methods like map(), filter(), reduce(), find(), etc.?
+- map creates a new array by applying a function to each element.
+
+- filter returns a new array with elements that pass a test function.
+
+- reduce reduces the array to a single value by accumulating results.
+
+- find returns the first element that satisfies a test function.
+- Example:
+     ```
+        const arr = [1, 2, 3, 4, 5];
+
+        // map
+        const doubled = arr.map(x => x * 2); // [2, 4, 6, 8, 10]
+
+        // filter
+        const evens = arr.filter(x => x % 2 === 0); // [2, 4]
+
+        // reduce
+        const sum = arr.reduce((acc, curr) => acc + curr, 0); // 15
+
+        // find
+        const firstEven = arr.find(x => x % 2 === 0); // 2
+
+     ```
+- [Back to Top](#javascript-interview-questions)
+
+### Q12. What are callbacks? How do they work?
+   - A callback is a function passed as an argument to another function, to be executed after some operation completes (often asynchronously).
+   - Example:
+     ```
+       function fetchData(callback) {
+        setTimeout(() => {
+            callback("Data loaded");
+        }, 1000);
+        }
+
+        fetchData(function(result) {
+            console.log(result); // "Data loaded" (after 1s)
+        });
+     ```
+   - Callbacks are core to handling asynchronous tasks in JavaScript (timers, I/O, events, etc.).
    - [Back to Top](#javascript-interview-questions)
 
-### Q12. How can you handle errors in JavaScript?
-   - Errors in JavaScript can be handled using `try`, `catch`, `finally` blocks.
-   - The `try` block contains the code to be executed, and if an error occurs, it jumps to the `catch` block.
-   - The `finally` block is executed regardless of whether an error occurred or not.
-   - [Back to Top](#javascript-interview-questions)
+### Q13. What are Promises? How are they better than callbacks?
 
-### Q13. What is an event loop in JavaScript?
+- A Promise is an object representing the eventual completion or failure of an asynchronous operation. Promises help you avoid deeply nested callbacks (callback hell) and provide better error handling.
 
-JavaScript’s event loop is the core mechanism that enables asynchronous operations. Although JavaScript is single-threaded, it manages tasks efficiently. Imagine it as a queue system: events such as user interactions or network requests are added to the queue, and the engine processes them one by one. This allows JavaScript to handle non-blocking tasks without freezing, keeping the application responsive even while waiting for data or other operations.
+✅ Benefits over callbacks:
+- Avoids callback nesting (callback hell)
+- Better error handling with .catch()
+- Easier to compose multiple async tasks
 
-**How does the event loop work?**
-
-- **Call Stack:**
-    - JavaScript uses a call stack to keep track of the currently executing function (where the program is in its execution).
-  
-- **Callback Queue:**
-    - Asynchronous operations, such as I/O operations or timers, are handled by the browser or Node.js runtime. When these operations are complete, corresponding functions (callbacks) are placed in the callback queue.
-  
-- **Event Loop:**
-    - The event loop continuously checks the call stack and the callback queue. If the call stack is empty, it takes the first function from the callback queue and pushes it onto the call stack for execution.
-  
-- **Execution:**
-    - The function on top of the call stack is executed. If this function contains asynchronous code, it might initiate further asynchronous operations.
-  
-- **Callback Execution:**
-    - When an asynchronous operation is complete, its callback is placed in the callback queue.
-  
-- **Repeat:**
-    - The event loop continues this process, ensuring that the call stack is always empty before taking the next function from the callback queue.
-
-   - [Back to Top](#javascript-interview-questions)
+- [Back to Top](#javascript-interview-questions)
 
 ### Q14. What is the difference between `null` and `undefined` in JavaScript?
    - **`null`:** It represents the intentional absence of any object value. It must be assigned.
