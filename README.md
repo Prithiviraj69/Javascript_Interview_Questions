@@ -1,3 +1,8 @@
+
+# Project Title
+
+A brief description of what this project does and who it's for
+
 # JavaScript_Interview_Question
 
 ## JavaScript Interview Questions
@@ -25,6 +30,19 @@
 21. **[What are localStorage, sessionStorage, and cookies?](#q21-what-are-localstorage-sessionstorage-and-cookies)**
 22. **[What is the `this` keyword and how does it behave in different contexts?](#q22-what-is-the-this-keyword-and-how-does-it-behave-in-different-contexts)**
 23. **[What is destructuring in JavaScript (arrays/objects)?](#q23-what-is-destructuring-in-javascript-arraysobjects)**
+24. **[What is middleware in Express.js? How does it work?](q24-what-is-middleware-in-expressjs-how-does-it-work)**
+25. **[Explain how you implemented JWT-based authentication in your project.](#q25-explain-how-you-implemented-jwt-based-authentication-in-your-project)**
+26. **[ Difference between process.nextTick(), setImmediate(), and setTimeout()?](#q26-difference-between-processnexttick-setimmediate-and-settimeout)**
+27. **[How do you structure a Node.js project?](#q27-how-do-you-structure-a-nodejs-project)**
+28. **[How do you handle errors in Express?](#q28-how-do-you-handle-errors-in-express)**
+29. **[How do you define a model using Mongoose?](#q29-how-do-you-define-a-model-using-mongoose)**
+30. **[Explain MongoDB aggregation pipeline stages.](#q30-explain-mongodb-aggregation-pipeline-stages)**
+31. **[How do you secure a Node.js backend application?](#q31-how-do-you-secure-a-nodejs-backend-application)**
+32. **[How do you deploy a Node.js app?](#q32-how-do-you-deploy-a-nodejs-app)**
+33. **[What are streams in Node.js?](#q33-what-are-streams-in-nodejs)**
+34. **[How does the Node.js event loop work?](#q34-how-does-the-nodejs-event-loop-work)**
+35. **[How do you test your APIs?](#q35-how-do-you-test-your-apis)**
+36. **[How would you scale a Node.js app for high traffic?](#q36-how-would-you-scale-a-nodejs-app-for-high-traffic)**
 
 
 # Questions and Answers
@@ -531,112 +549,236 @@ document.body.appendChild(newPara);
 - [Back to Top](#javascript-interview-questions)
   
 
-### Q24. How would you secure a Node.js server?
+### Q24. What is middleware in Express.js? How does it work?
 
-1. **Use HTTPS:** 
-    - Always use HTTPS for secure communication between the server and clients. Obtain an SSL/TLS certificate and configure your server to use it.
+- Middleware functions in Express are functions that run during the request-response cycle, between when a request comes in and a response is sent. Middleware has access to req, res, and next and is used for tasks like logging, parsing,  authentication, error handling, etc.
 
-2. **Input Validation:** 
-    - Validate and sanitize user inputs to prevent injection attacks such as SQL injection and cross-site scripting (XSS). Use appropriate libraries or built-in functions for this purpose.
+- Global middleware: Applied to all routes using app.use()
+- Route middleware: Applied to specific routes or route groups
+-  Example:
+     ```
+    app.use((req, res, next) => {
+     console.log(`${req.method} ${req.url}`);
+     next(); // Passes control to the next middleware
+   });
 
-3. **Implement Authentication and Authorization:**
-    - Use robust authentication methods such as OAuth, OpenID Connect, or token-based authentication (e.g., JWT) to verify users.
-    - Implement proper authorization mechanisms to control access to resources.
-
-4. **Secure Dependencies:**
-    - Keep your dependencies up to date and use trustworthy packages from reputable sources. Use tools like `npm audit` to identify vulnerabilities in your dependencies.
-
-5. **Limit Error Information:**
-    - Avoid exposing detailed error messages to clients. Instead, log errors server-side and return generic messages to the client.
-
-6. **Use Security Headers:**
-    - Configure your server to use security headers like `Content-Security-Policy`, `X-Frame-Options`, `X-XSS-Protection`, and `Strict-Transport-Security`.
-
-7. **Rate Limiting and Throttling:**
-    - Implement rate limiting and throttling to prevent abuse and protect against DoS attacks.
-
-8. **Secure Your Environment:**
-    - Keep your Node.js server updated with the latest patches and security updates.
-    - Use environment variables to store sensitive information such as API keys and database passwords.
-
-9. **Use a Web Application Firewall (WAF):**
-    - A WAF can provide an additional layer of security by filtering and monitoring HTTP traffic.
-
-10. **Protect against CSRF:**
-    - Use techniques such as CSRF tokens to protect against Cross-Site Request Forgery attacks.
-
-11. **Monitor and Audit:**
-    - Continuously monitor your application for security issues and conduct regular security audits.
-
-12. **Secure File and Directory Permissions:**
-    - Set appropriate file and directory permissions to restrict access to only the necessary users and processes.
-
-13. **Limit Privilege:** 
-    - Run your Node.js server with the least privilege required, avoiding running it as a root user.
-
-Implementing these best practices will help you create a more secure Node.js server and reduce the risk of security vulnerabilities in your application. Let me know if there's anything else I can help you with!
+     ```
 - [Back to Top](#javascript-interview-questions)
 
-### Q25. What are SQL joins?
+### Q25. Explain how you implemented JWT-based authentication in your project.
 
-In SQL, joins are used to combine rows from two or more tables based on a related column between them. This allows you to retrieve data from multiple tables in a single query, making it easier to analyze data and gain insights. Here are some common types of SQL joins:
+- After user login or signup, the server issues a JWT (signed with a secret).
 
-1. **INNER JOIN:**
-    - Retrieves rows that have matching values in both tables based on the specified join condition.
-    - Example:
-        ```sql
-        SELECT columns
-        FROM table1
-        INNER JOIN table2 ON table1.column = table2.column;
-        ```
+- The client includes the JWT in the Authorization header for each protected API request.
 
-2. **LEFT JOIN (LEFT OUTER JOIN):**
-    - Retrieves all rows from the left table and matching rows from the right table. If there is no match, NULL values are returned for columns from the right table.
-    - Example:
-        ```sql
-        SELECT columns
-        FROM table1
-        LEFT JOIN table2 ON table1.column = table2.column;
-        ```
+- On protected endpoints, you verify the JWT. If valid, allow access; if invalid, reject the request.
+-  Example:
+     ```
+    const jwt = require('jsonwebtoken');
 
-3. **RIGHT JOIN (RIGHT OUTER JOIN):**
-    - Retrieves all rows from the right table and matching rows from the left table. If there is no match, NULL values are returned for columns from the left table.
-    - Example:
-        ```sql
-        SELECT columns
-        FROM table1
-        RIGHT JOIN table2 ON table1.column = table2.column;
-        ```
+        // Generate token after login
+        const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
 
-4. **FULL OUTER JOIN:**
-    - Retrieves all rows from both tables, including rows with no matching values. If there is no match, NULL values are returned for columns from the non-matching table.
-    - Example:
-        ```sql
-        SELECT columns
-        FROM table1
-        FULL OUTER JOIN table2 ON table1.column = table2.column;
-        ```
+        // Middleware to protect routes
+        function authMiddleware(req, res, next) {
+        const token = req.headers.authorization?.split(' ')[1];
+        try {
+            const decoded = jwt.verify(token, 'your_jwt_secret');
+            req.user = decoded;
+            next();
+        } catch (err) {
+            res.status(401).json({ error: 'Invalid token' });
+        }
+        }
 
-5. **CROSS JOIN:**
-    - Produces a Cartesian product of both tables, resulting in all possible combinations of rows from each table.
-    - Example:
-        ```sql
-        SELECT columns
-        FROM table1
-        CROSS JOIN table2;
-        ```
+     ```
+- [Back to Top](#javascript-interview-questions)
 
-6. **SELF JOIN:**
-    - Joins a table to itself, typically for hierarchical or related data within a single table.
-    - Example:
-        ```sql
-        SELECT columns
-        FROM table1 AS t1
-        JOIN table1 AS t2 ON t1.column = t2.column;
-        ```
+### Q26.Difference between process.nextTick(), setImmediate(), and setTimeout()?
+- process.nextTick(): Executes the callback immediately after the current operation, before any I/O or timer events (microtask, highest priority).
 
-Using joins, you can create complex queries to retrieve and combine data from multiple tables efficiently. Joins are essential for querying relational databases and are a fundamental aspect of SQL. Let me know if you have any other questions or if there's anything else I can help you with!
+- setImmediate(): Executes the callback on the next iteration of the event loop, after any I/O events (macrotask).
+
+- setTimeout(callback, 0): Similar timing to setImmediate but scheduled by the timer phase, may be delayed more.
+
+   - Example:
+     ```
+        process.nextTick(() => console.log('nextTick'));
+        setTimeout(() => console.log('setTimeout'), 0);
+        setImmediate(() => console.log('setImmediate'));
+        // Output: nextTick, then setTimeout/setImmediate (order may vary)
+     ```
+- [Back to Top](#javascript-interview-questions)
+
+### Q27. How do you structure a Node.js project?
+   - Separate code into logical folders: routes, controllers, models, middlewares, config
+
+- Use environment variables for secrets (with dotenv)
+
+- Each module/file exports what’s needed, keeps code maintainable
+   - Example:
+     ```
+      /project-root
+        /routes
+            user.js
+        /controllers
+            userController.js
+        /models
+            User.js
+        /middlewares
+            auth.js
+        app.js
+        .env
+        package.json
+
+     ```
+   
+- [Back to Top](#javascript-interview-questions)
+
+### Q28. How do you handle errors in Express?
+
+- For synchronous errors, use try/catch in route handlers
+
+- For async errors, use next(err) to pass them to error-handling middleware
+
+- Create a centralized error handler that responds to the client and logs errors
+- Example :
+```
+// Centralized error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: err.message });
+});
+
+```
+- [Back to Top](#javascript-interview-questions)
+
+### Q29. How do you define a model using Mongoose?
+
+- Define a schema, then create a model with Mongoose:
+
+- Example :
+```
+const mongoose = require('mongoose');
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true }
+});
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
+
+
+```
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q30. Explain MongoDB aggregation pipeline stages.
+- Aggregation pipelines process data through multiple stages.
+
+- $match filters docs, $group aggregates, $lookup joins.
+
+- Example:
+     ```
+     [
+        { $match: { status: 'active' } },
+        { $group: { _id: '$department', total: { $sum: 1 } } },
+        { $lookup: {
+            from: 'departments', 
+            localField: '_id', 
+            foreignField: 'name', 
+            as: 'departmentDetails'
+            } 
+        }
+    ]
+
+     ```
+- [Back to Top](#javascript-interview-questions)
+
+### Q31. How do you secure a Node.js backend application?
+
+- Use environment variables, don’t commit secrets
+- Validate and sanitize all user input
+- Use HTTPS
+- Limit rate (express-rate-limit), helmet for HTTP headers
+- Keep dependencies updated (npm audit)
+- Use proper authentication & authorization
+- Sanitize database queries (e.g., use parameterized queries)
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q32. How do you deploy a Node.js app?
+
+- [Back to Top](#javascript-interview-questions)
+  
+
+### Q33. What are streams in Node.js?
+
+- Streams let you read, write, or transform data piece by piece, not all at once (efficient for big files, network, video/audio).
+
+- Readable, Writable, Duplex, Transform streams support various types of data flow.
+- Used for file I/O, HTTP requests/responses, real-time data.
+-  Example:
+     ```
+    const fs = require('fs');
+    const stream = fs.createReadStream('large.txt');
+    stream.on('data', chunk => console.log('Received chunk', chunk));
+    ```
+- [Back to Top](#javascript-interview-questions)
+
+### Q34.How does the Node.js event loop work?
+
+- Node.js uses an event loop with phases:
+
+    1. Timers: Executes setTimeout/setInterval callbacks
+
+    2. Pending Callbacks: I/O callbacks deferred to the next loop
+
+    3. Idle, Prepare: Internal use
+
+    4. Poll: Retrieves new I/O events, executes I/O-related callbacks
+
+    5. Check: Executes setImmediate callbacks
+
+    6. Close Callbacks: Executes close events
+
+ In between, microtasks like process.nextTick and resolved Promises execute..
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q35. How do you test your APIs?
+
+- Manual testing: Use Postman/Insomnia to send requests, check responses.
+
+- Automated testing: Use Jest/Supertest for integration tests.
+-  Example:
+     ```
+    const request = require('supertest');
+    const app = require('./app');
+
+    test('GET /users returns 200', async () => {
+    await request(app)
+        .get('/users')
+        .expect(200);
+    });
+
+    ```
+
 - [Back to Top](#javascript-interview-questions)
 
 
+### Q36. How would you scale a Node.js app for high traffic?
+
+- Clustering: Use Node.js cluster module/PM2 to use multiple CPU cores.
+
+- Load balancer: Use Nginx, HAProxy, or a cloud LB to distribute requests across multiple Node.js instances/servers.
+
+- Horizontal scaling: Deploy multiple instances, possibly on Kubernetes/Docker.
+
+- Stateless app: Avoid in-memory sessions; use Redis or database for session store.
+
+- Caching: Use Redis/memcached to cache results and reduce DB load.
+
+- Monitor and auto-scale: Use tools (NewRelic, AWS CloudWatch) to monitor and auto-scale based on traffic
+- [Back to Top](#javascript-interview-questions)
 
