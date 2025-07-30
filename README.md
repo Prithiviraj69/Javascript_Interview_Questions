@@ -43,6 +43,17 @@ A brief description of what this project does and who it's for
 34. **[How does the Node.js event loop work?](#q34-how-does-the-nodejs-event-loop-work)**
 35. **[How do you test your APIs?](#q35-how-do-you-test-your-apis)**
 36. **[How would you scale a Node.js app for high traffic?](#q36-how-would-you-scale-a-nodejs-app-for-high-traffic)**
+37. **[What is Mongoose? Why do we use it in Node.js projects?](#q37-what-is-mongoose-why-do-we-use-it-in-nodejs-projects)**
+38. **[How do you define a model in Mongoose? What are schema types and validations?](#q38-how-do-you-define-a-model-in-mongoose-what-are-schema-types-and-validations)**
+39. **[What are some common Mongoose schema options?](#q39-what-are-some-common-mongoose-schema-options)**
+40. **[How do you perform basic CRUD operations using Mongoose?](#q40-how-do-you-perform-basic-crud-operations-using-mongoose)**
+41. **[What is the aggregation framework in MongoDB?](#q41-what-is-the-aggregation-framework-in-mongodb)**
+42. **[How would you write an aggregation query to calculate total sales per product category?](#q42-how-would-you-write-an-aggregation-query-to-calculate-total-sales-per-product-category)**
+43. **[Explain the $lookup stage in aggregation. How is it different from SQL joins?](#q43-explain-the-lookup-stage-in-aggregation-how-is-it-different-from-sql-joins)**
+44. **[What’s the difference between $project and $addFields in MongoDB?](#q44-whats-the-difference-between-project-and-addfields-in-mongodb)**
+45. **[How do you design relationships in MongoDB? When to embed vs. reference?](#q45-how-do-you-design-relationships-in-mongodb-when-to-embed-vs-reference)**
+46. **[What are indexes in MongoDB? When should you use them?](#q46-what-are-indexes-in-mongodb-when-should-you-use-them)**
+47. **[How would you optimize large MongoDB queries or aggregation pipelines?](#q47-how-would-you-optimize-large-mongodb-queries-or-aggregation-pipelines)**
 
 
 # Questions and Answers
