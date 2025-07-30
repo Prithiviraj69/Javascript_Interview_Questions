@@ -793,3 +793,226 @@ module.exports = User;
 - Monitor and auto-scale: Use tools (NewRelic, AWS CloudWatch) to monitor and auto-scale based on traffic
 - [Back to Top](#javascript-interview-questions)
 
+### Q37. What is Mongoose? Why do we use it in Node.js projects?
+
+- Mongoose is an ODM (Object Data Modeling) library for MongoDB and Node.js.
+  It lets you define schemas that structure and validate your MongoDB documents, provides easy-to-use data modeling, and adds helpful features (validation, middleware, query helpers).
+
+- Why use it?
+
+    - Keeps MongoDB collections structured.
+
+    - Makes querying, validation, and data relationships consistent.
+
+    - Helps write cleaner, maintainable code in Node.js APIs.
+
+- Schema Definition: Defines data structure (fields, types).
+- Model Creation: Provides classes for CRUD and other operations.
+- Validations: Built-in (required, unique, etc.) and custom validation.
+- Middleware: Execute code before/after certain operations (e.g., save, validate).
+- [Back to Top](#javascript-interview-questions)
+
+### Q38. How do you define a model in Mongoose? What are schema types and validations?
+
+- define a schema as an object describing the fields, their types, and validation.
+The schema is then used to create a model.
+
+- Common types: String, Number, Boolean, Date, Array, ObjectId (references), Buffer, Mixed
+-  Example: User schema/model with validations
+     ```
+    const mongoose = require('mongoose');
+    const userSchema = new mongoose.Schema({
+      username: { type: String, required: true, unique: true, minlength: 4 },
+      email:    { type: String, required: true, unique: true, match: /.+@.+\..+/ },
+      password: { type: String, required: true, minlength: 6 },
+      age:      { type: Number, min: 0, max: 120 },
+      role:     { type: String, enum: ['user', 'admin'], default: 'user' }
+    }, { timestamps: true });
+
+    const User = mongoose.model('User', userSchema);
+
+    ```
+-  required, unique, enum, match (regex), default, etc. are validation options.
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q39. What are some common Mongoose schema options?
+
+- required: Field must be present.
+
+- default: Sets a value if none provided.
+
+- enum: Only allows listed values.
+
+- unique: Index to ensure no duplicates.
+
+- select: Hide field from query results unless explicitly asked (e.g., password).
+
+- timestamps: Adds createdAt and updatedAt fields automatically.
+-  Example:
+     ```
+    const schema = new mongoose.Schema({
+    status: { type: String, enum: ['active', 'pending'], default: 'active', required: true },
+    email:  { type: String, unique: true, required: true, select: false }},
+     { timestamps: true });
+
+    ```
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q40. How do you perform basic CRUD operations using Mongoose?
+
+- Create: Model.create(data), new Model(data).save()
+
+- Read: .find(), .findById(), .findOne()
+
+- Update: .updateOne(), .findByIdAndUpdate()
+
+- Delete: .deleteOne(), .findByIdAndDelete()
+-  Example:
+     ```
+    // Create
+    const user = await User.create({ username: 'bob', email: 'b@x.com', ... });
+
+    // Read
+    const users = await User.find({ role: 'admin' });
+    const user = await User.findById(id);
+
+    // Update
+    await User.updateOne({ _id: id }, { $set: { role: 'user' } });
+
+    // Delete
+    await User.deleteOne({ _id: id });
+    ```
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q41. What is the aggregation framework in MongoDB?
+
+- The aggregation pipeline is a way to process data through multiple stages ($match, $group, $project, etc.) for analytics, reporting, and transformations. Each stage transforms the documents as they pass through.
+
+- Common stages:
+
+  - $match: Filter documents
+
+  - $group: Group by fields, calculate sum/avg/count
+
+  - $project: Select/reshape fields
+
+  - $sort, $limit, $sum, $lookup (joins), $unwind (explode arrays)
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q42. How would you write an aggregation query to calculate total sales per product category?
+
+- Assume Orders collection with fields: { _id, category, amount }
+-  Example:
+     ```
+    db.orders.aggregate([
+      { $group: { _id: '$category', totalSales: { $sum: '$amount' } } },
+      { $sort: { totalSales: -1 } }
+    ]);
+    ```
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q43. Explain the $lookup stage in aggregation. How is it different from SQL joins?
+
+- $lookup lets you join documents from another collection (like SQL JOIN).
+
+- Returns results as an array in a new field per document.
+
+- MongoDB joins are always left outer joins.
+
+- Unlike SQL, MongoDB doesn't enforce referential integrity natively.
+-  Example: Join orders with users
+     ```
+    db.orders.aggregate([
+    { $lookup: {
+      from: 'users',
+      localField: 'userId',
+      foreignField: '_id',
+      as: 'user'
+    }}
+   ])
+
+    ```
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q44. What’s the difference between $project and $addFields in MongoDB?
+
+- $project: Selects which fields to include or exclude, or reshapes the document.
+
+- $addFields: Adds new fields or modifies existing ones, retaining the rest of the document.
+-  Example:
+     ```
+    // $project: Only output name and calculate fullName
+    { $project: { name: 1, fullName: { $concat: ['$first', ' ', '$last'] } } }
+
+    // $addFields: Add fullName but keep all original fields too
+    { $addFields: { fullName: { $concat: ['$first', ' ', '$last'] } } }
+
+    ```
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q45. How do you design relationships in MongoDB? When to embed vs. reference?
+
+- Embed: For data tightly coupled and not expected to grow huge (e.g., address inside user).
+
+- Reference: For large, reusable, or frequently shared/linked data (e.g., userId in orders).
+-  Embed Example:
+     ```
+    const userSchema = new Schema({
+      name: String,
+      address: {
+        street: String,
+        city: String
+      }
+    });
+
+    ```
+-  Reference Example:
+     ```
+    const orderSchema = new Schema({
+      userId: { type: Schema.Types.ObjectId, ref: 'User' }
+    });
+
+    ```
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q46. What are indexes in MongoDB? When should you use them?
+
+- Indexes speed up queries by allowing MongoDB to quickly locate data without scanning every document.
+
+- Use indexes on fields you query, sort, or use for uniqueness (e.g., email, username).
+
+- Indexes can be single field, compound, text, geospatial, etc.
+-  Example:
+     ```
+    const userSchema = new Schema({
+      email: { type: String, unique: true }
+    });
+    // OR, in CLI:
+    // db.users.createIndex({ email: 1 })
+    ```
+
+- [Back to Top](#javascript-interview-questions)
+
+### Q47. How would you optimize large MongoDB queries or aggregation pipelines?
+
+- Place $match and $limit near the start to filter early.
+
+- Only select necessary fields with $project.
+
+- Use indexes on match/sort fields.
+
+- Paginate large results with .skip() and .limit().
+
+- Avoid $lookup on huge collections, or use it last.
+
+- Ensure good schema design and monitor performance with tools (like explain plans, MongoDB Atlas tools).
+
+- [Back to Top](#javascript-interview-questions)
